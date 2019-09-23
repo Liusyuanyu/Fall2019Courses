@@ -35,61 +35,6 @@ function output = my_imfilter(image, filter)
 %%%%%%%%%%%%%%%%
 
 
-    %% Check size of the image and type
-    [rows, columns, numberOfColorChannels] = size(image);
 
-    output_image = uint8(zeros(size(image)));
 
-    if mod(rows,2) == 0
-        return
-    elseif mod(columns,2) == 0
-        return
-    end
-
-    [rows_filter, columns_filter] = size(filter);
-    half = fix(rows_filter/2);
-
-    for row =1:rows 
-        for column = 1:columns
-            sub_mat =  zeros(rows_filter); 
-
-            extract_row_start = row - half;
-            extract_row_end = row + half;
-            extract_col_start = column - half;
-            extract_col_end = column + half;
-
-            sub_row_start = 1;
-            sub_row_end = rows_filter;
-            sub_col_start = 1;
-            sub_col_end = columns_filter;
-
-            if extract_row_start <=0
-                sub_row_start = sub_row_start + abs(extract_row_start) +1;
-                extract_row_start = 1;
-            end
-
-            if extract_row_end > rows
-                sub_row_end = sub_row_end - ( extract_row_end - rows);
-                extract_row_end = rows;
-            end
-
-            if extract_col_start <=0
-                sub_col_start = sub_col_start + abs(extract_col_start) +1;
-                extract_col_start = 1;
-            end
-            if extract_col_end > columns
-                sub_col_end = sub_col_end  - (extract_col_end - columns);
-                extract_col_end = columns;
-            end
-
-            sub_matrix = image(extract_row_start:extract_row_end, extract_col_start:extract_col_end);
-            sub_mat(sub_row_start:sub_row_end,sub_col_start:sub_col_end) =sub_matrix; 
-
-            sub_mat = sub_mat.*filter ;
-            output_image(row,column) = sum(sub_mat(:));
-        end
-    end
-    output = output_image;
-
-end
 
