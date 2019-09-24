@@ -35,6 +35,62 @@ function output = my_imfilter(image, filter)
 %%%%%%%%%%%%%%%%
 
 
+    %% Check size of the image and type
+    [rows, columns, numberOfColorChannels] = size(image);
 
+    output_image = (zeros(size(image)));
 
+    if mod(rows,2) == 0|| mod(columns,2) == 0
+%         output = output_image;
+        ME = MException('my_imfilter:inputError','Both dimensions must be odd .');
+        throw(ME)
+    end
+
+    [rows_filter, columns_filter] = size(filter);
+    row_half = fix(rows_filter/2);
+    col_half = fix(columns_filter/2);
+    for dim=1:numberOfColorChannels
+        for row =1:rows 
+            for column = 1:columns
+                sub_mat =  zeros(size(filter)); 
+
+                extract_row_start = row - row_half;
+                extract_row_end = row + row_half;
+                extract_col_start = column - col_half;
+                extract_col_end = column + col_half;
+
+                sub_row_start = 1;
+                sub_row_end = rows_filter;
+                sub_col_start = 1;
+                sub_col_end = columns_filter;
+
+                if extract_row_start <=0
+                    sub_row_start = sub_row_start + abs(extract_row_start) +1;
+                    extract_row_start = 1;
+                end
+
+                if extract_row_end > rows
+                    sub_row_end = sub_row_end - ( extract_row_end - rows);
+                    extract_row_end = rows;
+                end
+
+                if extract_col_start <=0
+                    sub_col_start = sub_col_start + abs(extract_col_start) +1;
+                    extract_col_start = 1;
+                end
+                if extract_col_end > columns
+                    sub_col_end = sub_col_end  - (extract_col_end - columns);
+                    extract_col_end = columns;
+                end
+
+                sub_matrix = image(extract_row_start:extract_row_end, extract_col_start:extract_col_end, dim);
+                sub_mat(sub_row_start:sub_row_end,sub_col_start:sub_col_end, dim) =sub_matrix; 
+
+                sub_mat = sub_mat.*filter ;
+                output_image(row,column, dim) = sum(sub_mat(:));
+            end
+        end
+    end
+    output = output_image;
+end
 
