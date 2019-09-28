@@ -1,40 +1,63 @@
 import javax.swing.*;
-import Interpreter.*;
+import javax.swing.table.TableModel;
+
+import Listeners.SpreadSheetListener;
+import Listeners.SwitchViewButtonListener;
+
+import java.awt.*;
 
 public class SpreadSheetGUI {
-    public static void main(String[] args) {
-//        JFrame f=new JFrame();//creating instance of JFrame
-//
-//        JButton b=new JButton("click");//creating instance of JButton
-//        b.setBounds(130,100,100, 40);//x axis, y axis, width, height
-//
-//        f.add(b);//adding button in JFrame
-//
-//        f.setSize(400,500);//400 width and 500 height
-//        f.setLayout(null);//using no layout managers
-//        f.setVisible(true);//making the frame visible
+    public static void main(String[] args)
+    {
+        //Create a table to be value view
+        String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
+        Object[][] data = {{" "," "," "," "," "," "," ", " "," "}};
+        JTable valueTable = new JTable(data, columnNames);
+        TableModel valueTableModel = valueTable.getModel();
+        valueTable.setFillsViewportHeight(true);
+        SpreadSheetListener valueTableListener = new SpreadSheetListener();
+        valueTableModel.addTableModelListener(valueTableListener);
 
-//        TerminalExpression numberOne = new TerminalExpression("10");
-//        TerminalExpression numberTwo = new TerminalExpression("-5");
-//        AdditionExpression add_operator = new AdditionExpression(numberOne,numberTwo);
-//        SubtractionExpression sub_operator = new SubtractionExpression(numberOne,numberTwo);
-//        System.out.println("The result of interpreter.");
-//        System.out.println(add_operator.interpret());
-//        System.out.println(sub_operator.interpret());
-//
-//        sub_operator = new SubtractionExpression(add_operator,numberTwo);
-//        System.out.println(sub_operator.interpret());
-//
-//        SineExpression sine_operator = new SineExpression(numberOne);
-//        System.out.println(sine_operator.interpret());
-//
-//        LogBaseTwoExpression log_operator = new LogBaseTwoExpression(numberOne);
-//        System.out.println(log_operator.interpret());
 
-        PostfixInterpreter interpreter = new PostfixInterpreter();
-        String inputString = "10 5 -";
-//        String inputString = "1967 21 + 3 sin *";
-//        String inputString = "1967 21 + 3 sin * 8 lg *";
-        System.out.println(interpreter.interpret(inputString));
+        //Create buttons
+        JButton switchView =new JButton("Switch View");//Switch button
+        SwitchViewButtonListener switchButtonListener = new SwitchViewButtonListener();
+        switchView.addActionListener(switchButtonListener);
+        JButton undo =new JButton("Undo");//Undo button
+//        SpreadSheetListener valueTableListener = new SpreadSheetListener();
+
+
+
+        JScrollPane scrollPane = new JScrollPane(valueTable);
+        scrollPane.setVisible(true);
+        JFrame frame=new JFrame();//creating instance of JFrame
+        frame.setTitle("SpreadSheet");
+        frame.setLayout(new GridBagLayout());
+        frame.setSize(600,120);//400 width and 500 height
+        frame.setLocation(100,200);
+        frame.setVisible(true);//making the frame visible
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        GridBagConstraints bagConstraints = new GridBagConstraints();
+        bagConstraints.fill = GridBagConstraints.WEST;
+        bagConstraints.weightx = 0.5;
+        bagConstraints.gridx = 0;
+        bagConstraints.gridy = 0;
+        frame.add(switchView,bagConstraints);//adding button in JFrame
+
+        bagConstraints.fill = GridBagConstraints.WEST;
+        bagConstraints.weightx = 0.5;
+        bagConstraints.gridx = 1;
+        bagConstraints.gridy = 0;
+        frame.add(undo,bagConstraints);//adding button in JFrame
+
+        bagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        bagConstraints.ipady = 40;
+        bagConstraints.weightx = 1;
+        bagConstraints.gridwidth = 2;
+        bagConstraints.gridx = 0;
+        bagConstraints.gridy = 1;
+        frame.add(scrollPane,bagConstraints);//adding View table in JFrame
     }
+
 }
