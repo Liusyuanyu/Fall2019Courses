@@ -11,25 +11,37 @@ public class SpreadSheetGUI {
     {
         //Create a table to be value view
         String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
-        Object[][] data = {{" "," "," "," "," "," "," ", " "," "}};
+        Object[][] data = {{"12"," "," "," "," "," "," ", " "," "}};
+
         JTable valueTable = new JTable(data, columnNames);
         TableModel valueTableModel = valueTable.getModel();
         valueTable.setFillsViewportHeight(true);
         SpreadSheetListener valueTableListener = new SpreadSheetListener();
         valueTableModel.addTableModelListener(valueTableListener);
+        valueTable.setName("Value");
 
+        JTable equationTable = new JTable(data, columnNames);
+        TableModel equationTableModel = equationTable.getModel();
+        equationTable.setFillsViewportHeight(true);
+        SpreadSheetListener equationTableListener = new SpreadSheetListener();
+        equationTableModel.addTableModelListener(equationTableListener);
+        equationTable.setName("Equation");
 
         //Create buttons
         JButton switchView =new JButton("Switch View");//Switch button
         SwitchViewButtonListener switchButtonListener = new SwitchViewButtonListener();
         switchView.addActionListener(switchButtonListener);
+
         JButton undo =new JButton("Undo");//Undo button
 //        SpreadSheetListener valueTableListener = new SpreadSheetListener();
 
-
-
-        JScrollPane scrollPane = new JScrollPane(valueTable);
+        JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVisible(true);
+        scrollPane.setViewportView(valueTable);
+
+        switchButtonListener.setSrollPane(scrollPane);
+        switchButtonListener.setTables(valueTable,equationTable);
+
         JFrame frame=new JFrame();//creating instance of JFrame
         frame.setTitle("SpreadSheet");
         frame.setLayout(new GridBagLayout());
