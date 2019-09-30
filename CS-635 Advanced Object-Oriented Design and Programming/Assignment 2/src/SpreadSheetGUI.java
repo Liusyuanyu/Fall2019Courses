@@ -1,31 +1,43 @@
 import javax.swing.*;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 
-import Listeners.SpreadSheetListener;
+import Listeners.EquationSpreadSheetListener;
+import Listeners.ValueSpreadSheetListener;
 import Listeners.SwitchViewButtonListener;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class SpreadSheetGUI {
     public static void main(String[] args)
     {
         //Create a table to be value view
         String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
-        Object[][] data = {{"12"," "," "," "," "," "," ", " "," "}};
+        Object[][] valueTableData = {{""," "," "," "," "," "," ", " "," "}};
+        Object[][] equationTableData = {{""," "," "," "," "," "," ", " "," "}};
 
-        JTable valueTable = new JTable(data, columnNames);
+        JTable valueTable = new JTable(valueTableData, columnNames);
         TableModel valueTableModel = valueTable.getModel();
         valueTable.setFillsViewportHeight(true);
-        SpreadSheetListener valueTableListener = new SpreadSheetListener();
+        ValueSpreadSheetListener valueTableListener = new ValueSpreadSheetListener();
         valueTableModel.addTableModelListener(valueTableListener);
         valueTable.setName("Value");
 
-        JTable equationTable = new JTable(data, columnNames);
+        JTable equationTable = new JTable(equationTableData, columnNames);
         TableModel equationTableModel = equationTable.getModel();
-        equationTable.setFillsViewportHeight(true);
-        SpreadSheetListener equationTableListener = new SpreadSheetListener();
+        EquationSpreadSheetListener equationTableListener = new EquationSpreadSheetListener();
         equationTableModel.addTableModelListener(equationTableListener);
         equationTable.setName("Equation");
+        equationTable.setFillsViewportHeight(true);
+
+//        equationTableListener.setSyncTable(valueTable);
+        valueTableListener.setSyncTable(equationTable);
+        equationTableListener.setSyncTable(valueTable);
+        equationTableListener.setColumnNames(Arrays.asList(columnNames));
+
+        TableCellEditor cell = equationTable.getCellEditor();
+
 
         //Create buttons
         JButton switchView =new JButton("Switch View");//Switch button
@@ -33,7 +45,7 @@ public class SpreadSheetGUI {
         switchView.addActionListener(switchButtonListener);
 
         JButton undo =new JButton("Undo");//Undo button
-//        SpreadSheetListener valueTableListener = new SpreadSheetListener();
+//        ValueSpreadSheetListener valueTableListener = new ValueSpreadSheetListener();
 
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVisible(true);

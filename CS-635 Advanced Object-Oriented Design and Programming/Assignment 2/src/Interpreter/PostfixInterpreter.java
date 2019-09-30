@@ -2,6 +2,8 @@ package Interpreter;
 
 import OperatorStrategy.OperationContext;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -18,7 +20,9 @@ public class PostfixInterpreter {
 
     public Double interpret(String content)
     {
-        String[] elements = content.split(" ");
+//        String[] elements = content.split(" ");
+        List<String> elements= new ArrayList<>(Arrays.asList(content.split(" ")));
+        elements.removeIf(element-> element.isEmpty());
 
         Stack<Expression> expressionStack = new Stack<>();
         Expression expression;

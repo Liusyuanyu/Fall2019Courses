@@ -12,10 +12,7 @@ public class SwitchViewButtonListener implements ActionListener
 
     JScrollPane scrollPane;
 
-    public SwitchViewButtonListener()
-    {
-        //Nothing
-    }
+    public SwitchViewButtonListener(){}
 
     @Override
     public void actionPerformed(ActionEvent e) {
