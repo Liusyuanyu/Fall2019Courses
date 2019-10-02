@@ -27,7 +27,7 @@ public class ValueSpreadSheetListener implements TableModelListener
             try {
                 if (cellData.equals("Error") || cellData.equals(""))
                 {
-                    System.out.println(cellData);
+//                    System.out.println(cellData);
                     return;
                 }
                 cellValue = isNumeric(cellData);

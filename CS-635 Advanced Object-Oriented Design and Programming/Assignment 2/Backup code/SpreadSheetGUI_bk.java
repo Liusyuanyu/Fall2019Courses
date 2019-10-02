@@ -51,7 +51,7 @@ public class SpreadSheetGUI {
 //        tableModel.addColumn(columnNames);
 //        tableModel.addRow(data);
         table.setFillsViewportHeight(true);
-//        Listeners.SpreadSheetListener
+//        Listeners.ValueSpreadSheetListener
 
 
 
