@@ -13,9 +13,9 @@ from dataNormalization import rescaleMatrix
 
 ################PLACEHOLDER1 #start##########################
 # test multiple learning rates and report their convergence curves. 
-# ALPHA = 0.9
-ALPHA = 0.1
-MAX_ITER = 500
+# ALPHA = 0.8
+ALPHA = 0.02
+MAX_ITER = 200
 
 ################PLACEHOLDER1 #end##########################
 
