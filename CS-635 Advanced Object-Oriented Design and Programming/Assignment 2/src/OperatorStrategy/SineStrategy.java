@@ -1,7 +1,6 @@
 package OperatorStrategy;
 
 import Interpreter.Expression;
-import Interpreter.LogBaseTwoExpression;
 import Interpreter.SineExpression;
 
 import java.util.Stack;

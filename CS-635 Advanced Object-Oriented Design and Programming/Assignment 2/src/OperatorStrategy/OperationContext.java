@@ -27,14 +27,13 @@ public class OperationContext
         return operations;
     }
 
-    public boolean setOperation(String operator)
+    public void setOperation(String operator)
     {
         if(!operationMap.containsKey(operator))
         {
             throw new UnsupportedOperationException();
         }
         this.strategy = operationMap.get(operator);
-        return true;
     }
 
     public Stack<Expression> executeOperation(Stack<Expression> expressionStack)

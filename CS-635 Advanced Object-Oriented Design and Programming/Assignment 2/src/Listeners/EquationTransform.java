@@ -12,15 +12,15 @@ public class EquationTransform
     }
     public void append(String value)
     {
-        String cleanVlaue=value.replace(" ","");
-        if(valueOnlyEquation.capacity()==0)
+        String cleanValue=value.replace(" ","");
+        if(valueOnlyEquation.length()==0)
         {
-            valueOnlyEquation.append(cleanVlaue);
+            valueOnlyEquation.append(cleanValue);
         }
         else
         {
             valueOnlyEquation.append(" ");
-            valueOnlyEquation.append(cleanVlaue);
+            valueOnlyEquation.append(cleanValue);
         }
     }
     public void setIsCorrect(Boolean value)
@@ -31,7 +31,7 @@ public class EquationTransform
     {
         return isCorrect;
     }
-    public String getvalueOnlyEquation()
+    public String getValueOnlyEquation()
     {
         return valueOnlyEquation.toString();
     }

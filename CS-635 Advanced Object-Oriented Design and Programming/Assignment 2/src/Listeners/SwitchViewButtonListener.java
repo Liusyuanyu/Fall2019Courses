@@ -1,55 +1,45 @@
 package Listeners;
 
+import TableObjects.ViewModes;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SwitchViewButtonListener implements ActionListener
 {
-    JTable valueTable;
-    JTable equationTable;
-
-    JScrollPane scrollPane;
+    private JLabel viewModeLabel;
+    private TableListener tableListener;
+    private ViewModes currentViewMode;
 
     public SwitchViewButtonListener(){}
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-
-        if(valueTable==null || equationTable==null)
-            return;
-        Component currentViewport = scrollPane.getViewport().getView();
-        String name = currentViewport.getName();
-        if(currentViewport.getName()=="Value"){
-            scrollPane.remove(currentViewport);
-            scrollPane.setViewportView(equationTable);
-            scrollPane.updateUI();
-        }
-        else
+    public void actionPerformed(ActionEvent e)
+    {
+        if(currentViewMode == ViewModes.ValueView)
         {
-            scrollPane.remove(currentViewport);
-            scrollPane.setViewportView(valueTable);
-            scrollPane.updateUI();
+            viewModeLabel.setText("Equation View");
+            currentViewMode = ViewModes.EquationView;
+            tableListener.switchViewMode(currentViewMode);
         }
-
+        else//ViewModes.EquationView
+        {
+            viewModeLabel.setText("Value View");
+            currentViewMode = ViewModes.ValueView;
+            tableListener.switchViewMode(currentViewMode);
+        }
     }
 
-    public boolean setTables(JTable value, JTable equation)
-    {
-        if(value ==null || equation==null)
-            return false;
-        valueTable = value;
-        equationTable= equation;
-
-        return true;
+    public void setViewModeLabel(JLabel viewModeLabel) {
+        this.viewModeLabel = viewModeLabel;
     }
-
-    public boolean setSrollPane(JScrollPane scrollPane)
+    public void setTableListener(TableListener listener)
     {
-        if(scrollPane ==null)
-            return false;
-        this.scrollPane = scrollPane;
-        return true;
+        tableListener = listener;
+    }
+    public void setCurrentViewMode(ViewModes mode)
+    {
+        currentViewMode = mode;
     }
 }

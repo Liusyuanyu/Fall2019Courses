@@ -1,58 +1,64 @@
 import javax.swing.*;
-import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 
-import Listeners.EquationSpreadSheetListener;
-import Listeners.ValueSpreadSheetListener;
+import Listeners.TableListener;
 import Listeners.SwitchViewButtonListener;
+import TableObjects.CellData;
+import TableObjects.ViewModes;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SpreadSheetGUI {
+
     public static void main(String[] args)
     {
-        //Create a table to be value view
         String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
-        Object[][] valueTableData = {{""," "," "," "," "," "," ", " "," "}};
-        Object[][] equationTableData = {{""," "," "," "," "," "," ", " "," "}};
+        Object[][] initialData = {{""," "," "," "," "," "," ", " "," "}};
 
-        JTable valueTable = new JTable(valueTableData, columnNames);
-        TableModel valueTableModel = valueTable.getModel();
-        valueTable.setFillsViewportHeight(true);
-        ValueSpreadSheetListener valueTableListener = new ValueSpreadSheetListener();
-        valueTableModel.addTableModelListener(valueTableListener);
-        valueTable.setName("Value");
+        JTable spreadSheetTable = new JTable(initialData, columnNames);
+        TableModel spreadSheetTableModel = spreadSheetTable.getModel();
+        TableListener tableListener = new TableListener();
+        spreadSheetTableModel.addTableModelListener(tableListener);
+        spreadSheetTable.setFillsViewportHeight(true);
+        tableListener.setColumnNames(Arrays.asList(columnNames));
+        tableListener.setTableModel(spreadSheetTableModel);
 
-        JTable equationTable = new JTable(equationTableData, columnNames);
-        TableModel equationTableModel = equationTable.getModel();
-        EquationSpreadSheetListener equationTableListener = new EquationSpreadSheetListener();
-        equationTableModel.addTableModelListener(equationTableListener);
-        equationTable.setName("Equation");
-        equationTable.setFillsViewportHeight(true);
+        //Create a table to be value view
+        java.util.List<CellData> cellDataList = new ArrayList<>();
+        CellData newCell;
+        int columnNumber = 0;
+        for (String columnName: columnNames)
+        {
+            newCell = new CellData();
+            newCell.setRowAndColumn(0,columnNumber);
+            newCell.setColumnName(columnName);
+            newCell.setTableListener(tableListener);
+            columnNumber++;
+            cellDataList.add(newCell);
+        }
 
-//        equationTableListener.setSyncTable(valueTable);
-        valueTableListener.setSyncTable(equationTable);
-        equationTableListener.setSyncTable(valueTable);
-        equationTableListener.setColumnNames(Arrays.asList(columnNames));
+        //set Cell list after initial cells
+        tableListener.setCellDataList(cellDataList);
 
-        TableCellEditor cell = equationTable.getCellEditor();
+        //Create a label
+        JLabel viewModeLabel = new JLabel("Value View");
+        viewModeLabel.setMinimumSize(new Dimension(100,30));
 
+        JButton undo =new JButton("Undo");//Undo button
+
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setVisible(true);
+        scrollPane.setViewportView(spreadSheetTable);
 
         //Create buttons
         JButton switchView =new JButton("Switch View");//Switch button
         SwitchViewButtonListener switchButtonListener = new SwitchViewButtonListener();
         switchView.addActionListener(switchButtonListener);
-
-        JButton undo =new JButton("Undo");//Undo button
-//        ValueSpreadSheetListener valueTableListener = new ValueSpreadSheetListener();
-
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setVisible(true);
-        scrollPane.setViewportView(valueTable);
-
-        switchButtonListener.setSrollPane(scrollPane);
-        switchButtonListener.setTables(valueTable,equationTable);
+        switchButtonListener.setTableListener(tableListener);
+        switchButtonListener.setViewModeLabel(viewModeLabel);
+        switchButtonListener.setCurrentViewMode(ViewModes.ValueView);
 
         JFrame frame=new JFrame();//creating instance of JFrame
         frame.setTitle("SpreadSheet");
@@ -67,21 +73,26 @@ public class SpreadSheetGUI {
         bagConstraints.weightx = 0.5;
         bagConstraints.gridx = 0;
         bagConstraints.gridy = 0;
-        frame.add(switchView,bagConstraints);//adding button in JFrame
+        frame.add(viewModeLabel,bagConstraints);//adding label in JFrame
 
         bagConstraints.fill = GridBagConstraints.WEST;
         bagConstraints.weightx = 0.5;
         bagConstraints.gridx = 1;
+        bagConstraints.gridy = 0;
+        frame.add(switchView,bagConstraints);//adding button in JFrame
+
+        bagConstraints.fill = GridBagConstraints.WEST;
+        bagConstraints.weightx = 0.5;
+        bagConstraints.gridx = 2;
         bagConstraints.gridy = 0;
         frame.add(undo,bagConstraints);//adding button in JFrame
 
         bagConstraints.fill = GridBagConstraints.HORIZONTAL;
         bagConstraints.ipady = 40;
         bagConstraints.weightx = 1;
-        bagConstraints.gridwidth = 2;
+        bagConstraints.gridwidth = 3;
         bagConstraints.gridx = 0;
         bagConstraints.gridy = 1;
         frame.add(scrollPane,bagConstraints);//adding View table in JFrame
     }
-
 }

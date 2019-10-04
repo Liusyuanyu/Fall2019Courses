@@ -6,5 +6,5 @@ import java.util.Stack;
 
 public interface OperationStrategy
 {
-    public Stack<Expression> execute(Stack<Expression> expressionStack);
+    Stack<Expression> execute(Stack<Expression> expressionStack);
 }

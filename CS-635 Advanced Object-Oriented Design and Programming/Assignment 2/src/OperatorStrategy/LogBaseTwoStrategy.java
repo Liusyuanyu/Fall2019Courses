@@ -2,7 +2,6 @@ package OperatorStrategy;
 
 import Interpreter.Expression;
 import Interpreter.LogBaseTwoExpression;
-import Interpreter.MultiplicationExpression;
 
 import java.util.Stack;
 

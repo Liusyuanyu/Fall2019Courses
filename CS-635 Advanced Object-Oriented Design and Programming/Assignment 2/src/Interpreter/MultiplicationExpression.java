@@ -2,8 +2,8 @@ package Interpreter;
 
 public class MultiplicationExpression implements Expression
 {
-    private Expression leftExpression = null;
-    private Expression rightExpression = null;
+    private Expression leftExpression;
+    private Expression rightExpression;
     //Constructor
     public MultiplicationExpression(Expression leftExpression, Expression rightExpression)
     {

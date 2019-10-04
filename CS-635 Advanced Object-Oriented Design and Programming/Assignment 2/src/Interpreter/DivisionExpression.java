@@ -4,8 +4,8 @@ package Interpreter;
 
 public class DivisionExpression implements Expression
 {
-    private Expression leftExpression = null;
-    private Expression rightExpression = null;
+    private Expression leftExpression;
+    private Expression rightExpression ;
     //Constructor
     public DivisionExpression(Expression leftExpression, Expression rightExpression)
     {

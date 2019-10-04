@@ -4,7 +4,7 @@ import static java.lang.Math.log;
 
 public class LogBaseTwoExpression implements Expression
 {
-    private Expression numberExpression = null;
+    private Expression numberExpression;
     //Constructor
     public LogBaseTwoExpression(Expression numberExpression)
     {

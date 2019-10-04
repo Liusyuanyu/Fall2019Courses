@@ -4,7 +4,7 @@ import static java.lang.Math.*;
 
 public class SineExpression implements Expression
 {
-    private Expression numberExpression = null;
+    private Expression numberExpression;
     //Constructor
     public SineExpression(Expression numberExpression)
     {

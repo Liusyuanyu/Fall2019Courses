@@ -4,8 +4,8 @@ package Interpreter;
 
 public class SubtractionExpression implements Expression
 {
-    private Expression leftExpression = null;
-    private Expression rightExpression = null;
+    private Expression leftExpression;
+    private Expression rightExpression;
     //Constructor
     public SubtractionExpression(Expression leftExpression, Expression rightExpression)
     {
