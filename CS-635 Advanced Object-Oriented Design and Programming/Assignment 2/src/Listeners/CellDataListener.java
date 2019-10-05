@@ -2,7 +2,7 @@ package Listeners;
 
 public interface CellDataListener
 {
-    void cellDataChanged(String newData);
+    void cellDataContentChanged(String newData);
     void cellDataUpdate();
-
+    void undoEquationUpdate();
 }

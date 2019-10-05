@@ -24,6 +24,7 @@ public class CellData implements CellDataListener
     private int numberOfReference;
     private int updateTimes;
 
+    //Constructor
     public CellData()
     {
         viewMode = ViewModes.ValueView;
@@ -41,85 +42,54 @@ public class CellData implements CellDataListener
 
         postfixInterpreter = new PostfixInterpreter();
     }
-    private void addCellDataListener(CellDataListener listener)
-    {
-        listenerList.add(listener);
-    }
-    private void removeCellDataListener(CellDataListener listener)
-    {
-        listenerList.remove(listener);
-    }
-    public void setTableListener(TableListener tableListener)
-    {
-        this.tableListener = tableListener;
-    }
+    public void setTableListener(TableListener tableListener) { this.tableListener = tableListener; }
     public void setRowAndColumn(int row, int column)
     {
         this.row =row;
         this.column =column;
     }
-    public int[] getRowAndColumn()
-    {
-        return new int[]{row,column};
-    }
-//    public void setValueData(String value)
-//    {
-//        valueData = value;
-//    }
-    public String getValueData()
-    {
-        return valueData;
-    }
-    public void setColumnName(String name)
-    {
-        columnName = name;
-    }
-//    public String getColumnName()
-//    {
-//        return columnName;
-//    }
-//    public void setEquationData(String value)
-//    {
-//        equationData = value;
-//    }
-    public String getEquationData()
-    {
-        return equationData;
-    }
+    public int[] getRowAndColumn() { return new int[]{row,column}; }
+    public void setValueData(String value) { valueData = value; }
+    public String getValueData() { return valueData; }
+    public void setEquationData(String equation) { equationData = equation; }
+    public String getEquationData(){ return equationData; }
 
-    public void setViewMode(ViewModes mode)
-    {
-        viewMode = mode;
-    }
+    public void setColumnName(String name) { columnName = name; }
+    public void setViewMode(ViewModes mode) { viewMode = mode; }
 
-    public void resetUpdateTimes()
-    {
-        updateTimes= 0;
-    }
+    public void resetUpdateTimes() { updateTimes= 0; }
 
     @Override
-    public void cellDataChanged(String newData)
+    public void cellDataContentChanged(String newData)
     {
         removeReference();
-        if(viewMode == ViewModes.ValueView)
+        if(!newData.isEmpty())
         {
-            if(isNumeric(newData))
+            if(viewMode == ViewModes.ValueView)
             {
-                valueData = newData;
+                if(isNumeric(newData))
+                {
+                    valueData = newData;
+                }
+                else
+                {
+                    newData = "Error";
+                    valueData = newData;
+                    tableListener.updateValueNoEvent(row,column,valueData);
+                }
+                equationData = newData;
             }
-            else
+            else//EquationView
             {
-                newData = "Error";
-                valueData = newData;
-                tableListener.updateValueNoEvent(row,column,valueData);
+                equationData = newData;
+                EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
+                executeEquationInterpret(equationTransformed);
             }
-            equationData = newData;
         }
-        else//EquationView
+        else
         {
+            valueData = newData;
             equationData = newData;
-            EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
-            executeEquationProcess(equationTransformed);
         }
         fireCellDataChanged(true);
     }
@@ -132,12 +102,21 @@ public class CellData implements CellDataListener
             return;
         }
         EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,false);
-        executeEquationProcess(equationTransformed);
+        executeEquationInterpret(equationTransformed);
         fireCellDataChanged(false);
         if(viewMode == ViewModes.ValueView)
         {
             tableListener.updateValueNoEvent(row,column,valueData);
         }
+    }
+
+    @Override
+    public void undoEquationUpdate()
+    {
+        removeReference();
+        EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
+        executeEquationInterpret(equationTransformed);
+        fireCellDataChanged(true);
     }
 
     public Boolean isCellMatched(int row, int column)
@@ -150,6 +129,8 @@ public class CellData implements CellDataListener
     }
 
     ////Private
+    private void addCellDataListener(CellDataListener listener) { listenerList.add(listener); }
+    private void removeCellDataListener(CellDataListener listener) { listenerList.remove(listener); }
     private void fireCellDataChanged(Boolean isInitiator)
     {
         if(isInitiator)
@@ -162,7 +143,6 @@ public class CellData implements CellDataListener
             listener.cellDataUpdate();
         }
     }
-
     private void removeReference()
     {
         for(CellData cellData : referenceCellList)
@@ -185,6 +165,9 @@ public class CellData implements CellDataListener
             {
                 referCell = tableListener.getCellData(row,element);
                 String value = referCell.getValueData();
+                //If the value is Empty, let it be zero.
+                if (value.isEmpty()){ value="0"; }
+
                 equationTransform.append(value);
                 if(updateReference)
                 {
@@ -223,7 +206,6 @@ public class CellData implements CellDataListener
         }
         return isCorrect;
     }
-
     private Boolean isNumeric(String data)
     {
         try
@@ -232,18 +214,17 @@ public class CellData implements CellDataListener
         }
         catch (NumberFormatException exception) {
             return false;
-//            throw exception;
         }
         return true;
     }
-    private void executeEquationProcess(EquationTransform equationTransformed)
+    private void executeEquationInterpret(EquationTransform equationTransformed)
     {
         if(equationTransformed.getIsCorrect())
         {
             try
             {
                 String valueOnlyEquation = equationTransformed.getValueOnlyEquation();
-                if(valueOnlyEquation.equals(""))//Empty cell. Don't need to update
+                if(valueOnlyEquation.isEmpty())//Empty cell. Don't need to update
                 {
                     return;
                 }

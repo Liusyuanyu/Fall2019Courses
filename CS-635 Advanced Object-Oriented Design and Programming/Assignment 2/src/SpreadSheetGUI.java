@@ -3,6 +3,7 @@ import javax.swing.table.TableModel;
 
 import Listeners.TableListener;
 import Listeners.SwitchViewButtonListener;
+import Listeners.UndoButtonListener;
 import TableObjects.CellData;
 import TableObjects.ViewModes;
 
@@ -46,7 +47,12 @@ public class SpreadSheetGUI {
         JLabel viewModeLabel = new JLabel("Value View");
         viewModeLabel.setMinimumSize(new Dimension(100,30));
 
+        //Create an Undo button
         JButton undo =new JButton("Undo");//Undo button
+
+        UndoButtonListener undoActionListener = new UndoButtonListener();
+        undo.addActionListener(undoActionListener);
+        undoActionListener.setTableListener(tableListener);
 
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVisible(true);
