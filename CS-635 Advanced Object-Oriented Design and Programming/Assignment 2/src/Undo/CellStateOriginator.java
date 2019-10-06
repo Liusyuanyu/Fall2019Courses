@@ -15,7 +15,6 @@ public class CellStateOriginator
         this.cellState.setEquationData(cellState.getEquationData());
         int[] rowAndColumn = cellState.getRowAndColumn();
         this.cellState.setRowAndColumn(rowAndColumn[0],rowAndColumn[1]);
-
     }
     public Memento createMemento()
     {

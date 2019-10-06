@@ -4,7 +4,7 @@ import Interpreter.Expression;
 
 import java.util.Stack;
 
-public interface OperationStrategy
+interface OperationStrategy
 {
     Stack<Expression> execute(Stack<Expression> expressionStack);
 }

@@ -14,13 +14,7 @@ public class LogBaseTwoExpression implements Expression
     @Override
     public double interpret()
     {
-        try {
-            return log(numberExpression.interpret()) / log(2);
-        }
-        catch (NumberFormatException inputException)
-        {
-            throw inputException;
-        }
+        return log(numberExpression.interpret()) / log(2);
     }
 
 }

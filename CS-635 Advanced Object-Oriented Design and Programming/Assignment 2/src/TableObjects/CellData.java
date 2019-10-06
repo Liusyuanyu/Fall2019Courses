@@ -6,8 +6,8 @@ import Listeners.EquationTransform;
 import Listeners.TableListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class CellData implements CellDataListener
 {
@@ -58,8 +58,15 @@ public class CellData implements CellDataListener
     public void setViewMode(ViewModes mode) { viewMode = mode; }
 
     public void resetUpdateTimes() { updateTimes= 0; }
+    public Boolean isCellMatched(int row, int column)
+    {
+        return (this.row==row)&&(this.column==column);
+    }
+    public Boolean isCellMatched(int row, String name)
+    {
+        return (this.row==row)&&(this.columnName.equals(name));
+    }
 
-    @Override
     public void cellDataContentChanged(String newData)
     {
         removeReference();
@@ -94,6 +101,14 @@ public class CellData implements CellDataListener
         fireCellDataChanged(true);
     }
 
+    public void undoEquationUpdate()
+    {
+        removeReference();
+        EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
+        executeEquationInterpret(equationTransformed);
+        fireCellDataChanged(true);
+    }
+
     @Override
     public void cellDataUpdate()
     {
@@ -108,24 +123,6 @@ public class CellData implements CellDataListener
         {
             tableListener.updateValueNoEvent(row,column,valueData);
         }
-    }
-
-    @Override
-    public void undoEquationUpdate()
-    {
-        removeReference();
-        EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
-        executeEquationInterpret(equationTransformed);
-        fireCellDataChanged(true);
-    }
-
-    public Boolean isCellMatched(int row, int column)
-    {
-        return (this.row==row)&&(this.column==column);
-    }
-    public Boolean isCellMatched(int row, String name)
-    {
-        return (this.row==row)&&(this.columnName.equals(name));
     }
 
     ////Private
@@ -154,13 +151,13 @@ public class CellData implements CellDataListener
     }
     private EquationTransform transformEquationAndUpdateDependency(String equation, Boolean updateReference)
     {
-        List<String> elements= new ArrayList<>(Arrays.asList((equation).split(" ")));
-        elements.removeIf(String::isEmpty);
+        StringTokenizer elements = new StringTokenizer(equation);
         CellData referCell;
         EquationTransform equationTransform = new EquationTransform();
 
-        for (String element:elements)
-        {
+        String element;
+        while (elements.hasMoreElements()) {
+            element = elements.nextToken();
             if(tableListener.isColumnName(element))
             {
                 referCell = tableListener.getCellData(row,element);
@@ -180,7 +177,6 @@ public class CellData implements CellDataListener
             {
                 equationTransform.append(element);
             }
-
         }
         ArrayList<Integer> referencePath = new ArrayList<>();
         equationTransform.setIsCorrect(isCircular(column,referencePath));

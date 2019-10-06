@@ -11,12 +11,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SpreadSheetGUI {
+class SpreadSheetGUI {
 
     public static void main(String[] args)
     {
         String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
-        Object[][] initialData = {{""," "," "," "," "," "," ", " "," "}};
+        Object[][] initialData = {{"","","","","","","","",""}};
 
         JTable spreadSheetTable = new JTable(initialData, columnNames);
         TableModel spreadSheetTableModel = spreadSheetTable.getModel();
@@ -76,19 +76,19 @@ public class SpreadSheetGUI {
 
         GridBagConstraints bagConstraints = new GridBagConstraints();
         bagConstraints.fill = GridBagConstraints.WEST;
-        bagConstraints.weightx = 0.5;
+        bagConstraints.weightx = 0.6;
         bagConstraints.gridx = 0;
         bagConstraints.gridy = 0;
         frame.add(viewModeLabel,bagConstraints);//adding label in JFrame
 
-        bagConstraints.fill = GridBagConstraints.WEST;
-        bagConstraints.weightx = 0.5;
+        bagConstraints.fill = GridBagConstraints.CENTER;
+        bagConstraints.weightx = 0.2;
         bagConstraints.gridx = 1;
         bagConstraints.gridy = 0;
         frame.add(switchView,bagConstraints);//adding button in JFrame
 
-        bagConstraints.fill = GridBagConstraints.WEST;
-        bagConstraints.weightx = 0.5;
+        bagConstraints.fill = GridBagConstraints.EAST;
+        bagConstraints.weightx = 0.2;
         bagConstraints.gridx = 2;
         bagConstraints.gridy = 0;
         frame.add(undo,bagConstraints);//adding button in JFrame

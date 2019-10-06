@@ -14,13 +14,7 @@ public class MultiplicationExpression implements Expression
     @Override
     public double interpret()
     {
-        try {
-            return this.leftExpression.interpret() * this.rightExpression.interpret();
-        }
-        catch (NumberFormatException inputException)
-        {
-            throw inputException;
-        }
+        return this.leftExpression.interpret() * this.rightExpression.interpret();
     }
 
 }

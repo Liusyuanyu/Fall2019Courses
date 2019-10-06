@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class CellStateCareTaker
 {
-    Stack<Object> mementoStack;
+    private Stack<Object> mementoStack;
 
     public CellStateCareTaker()
     {

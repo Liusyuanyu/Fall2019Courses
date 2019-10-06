@@ -1,7 +1,5 @@
 package Interpreter;
 
-// +, -, *, / , lg (base 2) and sin.
-
 public class SubtractionExpression implements Expression
 {
     private Expression leftExpression;
@@ -16,13 +14,7 @@ public class SubtractionExpression implements Expression
     @Override
     public double interpret()
     {
-        try {
-            return this.leftExpression.interpret() - this.rightExpression.interpret();
-        }
-        catch (NumberFormatException inputException)
-        {
-            throw inputException;
-        }
+        return this.leftExpression.interpret() - this.rightExpression.interpret();
     }
 
 }

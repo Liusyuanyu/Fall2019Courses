@@ -7,12 +7,10 @@ import java.util.*;
 public class OperationContext
 {
     private OperationStrategy strategy;
-    private List<String> operations;
     private Map<String,OperationStrategy> operationMap;
     public OperationContext()
     {
-        this.operations = Arrays.asList(new String[]{"+","-","*","/","lg","sin"});
-        this.operationMap =  new HashMap< String,OperationStrategy>();
+        this.operationMap = new HashMap<>();
 
         operationMap.put("+",new AdditionStrategy());
         operationMap.put("-",new SubtractionStrategy());
@@ -24,7 +22,7 @@ public class OperationContext
 
     public List<String> getOperators()
     {
-        return operations;
+        return new ArrayList<>(operationMap.keySet());
     }
 
     public void setOperation(String operator)

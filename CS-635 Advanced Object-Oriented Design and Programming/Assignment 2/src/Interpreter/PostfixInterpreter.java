@@ -2,10 +2,7 @@ package Interpreter;
 
 import OperatorStrategy.OperationContext;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class PostfixInterpreter {
 
@@ -20,13 +17,14 @@ public class PostfixInterpreter {
 
     public Double interpret(String content)
     {
-        List<String> elements= new ArrayList<>(Arrays.asList(content.split(" ")));
-        elements.removeIf(String::isEmpty);
+        StringTokenizer elements = new StringTokenizer(content);
 
         Stack<Expression> expressionStack = new Stack<>();
         Expression expression;
-        for (String element:elements)
-        {
+
+        String element;
+        while (elements.hasMoreElements()) {
+            element = elements.nextToken();
             if(operators.contains(element) )//It's a operators
             {
                 operationStrategy.setOperation(element);
@@ -38,6 +36,7 @@ public class PostfixInterpreter {
                 expressionStack.add(expression);
             }
         }
+
         if (expressionStack.size() != 1)
         {
             throw new RuntimeException("The context isn't postfix.");

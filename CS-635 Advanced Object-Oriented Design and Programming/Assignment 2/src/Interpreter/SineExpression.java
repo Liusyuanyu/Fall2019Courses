@@ -14,14 +14,8 @@ public class SineExpression implements Expression
     @Override
     public double interpret()
     {
-        try {
-            Double radiant = Math.toRadians(numberExpression.interpret());
-            return sin(radiant);
-        }
-        catch (NumberFormatException inputException)
-        {
-            throw inputException;
-        }
+        double radiant = Math.toRadians(numberExpression.interpret());
+        return sin(radiant);
     }
 
 }
