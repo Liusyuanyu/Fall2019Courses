@@ -1,9 +1,11 @@
 package Interpreter;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TerminalExpressionTest {
-    @org.junit.jupiter.api.Test
+    @Test
     void interpretNumeric() {
         TerminalExpression testObject = new TerminalExpression("10");
         assertEquals(testObject.interpret(), 10);
@@ -15,7 +17,7 @@ class TerminalExpressionTest {
         assertEquals(testObject.interpret(), 92);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void interpretNonNumeric() {
         TerminalExpression testObject = new TerminalExpression("Non-Numeric");
         assertThrows(NumberFormatException.class, testObject::interpret);

@@ -2,9 +2,10 @@ package Interpreter;
 
 import static java.lang.Math.sin;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class SineExpressionTest {
-    @org.junit.jupiter.api.Test
+    @Test
     void interpret() {
         TerminalExpression numberExpression = new TerminalExpression("10");
 

@@ -1,12 +1,12 @@
 package Interpreter;
 
-import static java.lang.Math.log10;
 import static org.junit.jupiter.api.Assertions.*;
 import static java.lang.Math.log;
+import org.junit.jupiter.api.Test;
 
 
 class LogBaseTwoExpressionTest {
-    @org.junit.jupiter.api.Test
+    @Test
     void interpret() {
         TerminalExpression numberExpression = new TerminalExpression("10");
 

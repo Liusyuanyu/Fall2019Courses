@@ -1,9 +1,10 @@
 package Interpreter;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class MultiplicationExpressionTest {
-    @org.junit.jupiter.api.Test
+    @Test
     void interpret() {
         TerminalExpression rightExpression = new TerminalExpression("10");
         TerminalExpression leftExpression = new TerminalExpression("10");

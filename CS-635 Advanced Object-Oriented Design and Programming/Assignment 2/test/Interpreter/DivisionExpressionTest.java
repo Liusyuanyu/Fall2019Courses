@@ -1,9 +1,11 @@
 package Interpreter;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DivisionExpressionTest {
-    @org.junit.jupiter.api.Test
+    @Test
     void interpret() {
         TerminalExpression rightExpression = new TerminalExpression("10");
         TerminalExpression leftExpression = new TerminalExpression("10");
