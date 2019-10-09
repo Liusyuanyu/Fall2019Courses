@@ -115,4 +115,12 @@ class OperationContextTest {
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
         assertEquals(Math.log(20)/Math.log(2),resultStack.pop().interpret());
     }
+
+    @Test
+    void errorSetOperation() {
+        OperationContext testOperation = new OperationContext();
+        assertThrows(UnsupportedOperationException.class, ()->{
+            testOperation.setOperation("Wrong");
+        });
+    }
 }

@@ -5,7 +5,7 @@ import Listeners.TableListener;
 import Listeners.SwitchViewButtonListener;
 import Listeners.UndoButtonListener;
 import TableObjects.CellData;
-import TableObjects.ViewModes;
+import TableObjects.ViewStates;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -64,7 +64,7 @@ class SpreadSheetGUI {
         switchView.addActionListener(switchButtonListener);
         switchButtonListener.setTableListener(tableListener);
         switchButtonListener.setViewModeLabel(viewModeLabel);
-        switchButtonListener.setCurrentViewMode(ViewModes.ValueView);
+        switchButtonListener.setCurrentViewMode(ViewStates.ValueView);
 
         JFrame frame=new JFrame();//creating instance of JFrame
         frame.setTitle("SpreadSheet");

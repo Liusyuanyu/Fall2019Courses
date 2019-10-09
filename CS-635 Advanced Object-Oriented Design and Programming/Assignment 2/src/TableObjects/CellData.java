@@ -2,7 +2,7 @@ package TableObjects;
 
 import Interpreter.PostfixInterpreter;
 import Listeners.CellDataListener;
-import Listeners.EquationTransform;
+import Listeners.EquationDetail;
 import Listeners.TableListener;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 
 public class CellData implements CellDataListener
 {
-    private ViewModes viewMode;
+    private ViewStates viewState;
     private int row;
     private int column;
     private String columnName;
@@ -27,7 +27,7 @@ public class CellData implements CellDataListener
     //Constructor
     public CellData()
     {
-        viewMode = ViewModes.ValueView;
+        viewState = ViewStates.ValueView;
         row = -1;
         column = -1;
         listenerList = new ArrayList<>();
@@ -55,7 +55,10 @@ public class CellData implements CellDataListener
     public String getEquationData(){ return equationData; }
 
     public void setColumnName(String name) { columnName = name; }
-    public void setViewMode(ViewModes mode) { viewMode = mode; }
+    public void setViewState(ViewStates state)
+    {
+        viewState = state;
+    }
 
     public void resetUpdateTimes() { updateTimes= 0; }
     public Boolean isCellMatched(int row, int column)
@@ -72,7 +75,7 @@ public class CellData implements CellDataListener
         removeReference();
         if(!newData.isEmpty())
         {
-            if(viewMode == ViewModes.ValueView)
+            if(viewState == ViewStates.ValueView)
             {
                 if(isNumeric(newData))
                 {
@@ -89,7 +92,7 @@ public class CellData implements CellDataListener
             else//EquationView
             {
                 equationData = newData;
-                EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
+                EquationDetail equationTransformed = transformEquationAndUpdateDependency(equationData,true);
                 executeEquationInterpret(equationTransformed);
             }
         }
@@ -104,7 +107,7 @@ public class CellData implements CellDataListener
     public void undoEquationUpdate()
     {
         removeReference();
-        EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,true);
+        EquationDetail equationTransformed = transformEquationAndUpdateDependency(equationData,true);
         executeEquationInterpret(equationTransformed);
         fireCellDataChanged(true);
     }
@@ -116,10 +119,10 @@ public class CellData implements CellDataListener
         {
             return;
         }
-        EquationTransform equationTransformed = transformEquationAndUpdateDependency(equationData,false);
+        EquationDetail equationTransformed = transformEquationAndUpdateDependency(equationData,false);
         executeEquationInterpret(equationTransformed);
         fireCellDataChanged(false);
-        if(viewMode == ViewModes.ValueView)
+        if(viewState == ViewStates.ValueView)
         {
             tableListener.updateValueNoEvent(row,column,valueData);
         }
@@ -149,11 +152,11 @@ public class CellData implements CellDataListener
         referenceCellList.clear();
         numberOfReference = 0;
     }
-    private EquationTransform transformEquationAndUpdateDependency(String equation, Boolean updateReference)
+    private EquationDetail transformEquationAndUpdateDependency(String equation, Boolean updateReference)
     {
         StringTokenizer elements = new StringTokenizer(equation);
         CellData referCell;
-        EquationTransform equationTransform = new EquationTransform();
+        EquationDetail equationDetail = new EquationDetail();
 
         String element;
         while (elements.hasMoreElements()) {
@@ -165,7 +168,7 @@ public class CellData implements CellDataListener
                 //If the value is Empty, let it be zero.
                 if (value.isEmpty()){ value="0"; }
 
-                equationTransform.append(value);
+                equationDetail.append(value);
                 if(updateReference)
                 {
                     numberOfReference ++;
@@ -175,12 +178,12 @@ public class CellData implements CellDataListener
             }
             else
             {
-                equationTransform.append(element);
+                equationDetail.append(element);
             }
         }
         ArrayList<Integer> referencePath = new ArrayList<>();
-        equationTransform.setIsCorrect(isCircular(column,referencePath));
-        return equationTransform;
+        equationDetail.setIsCorrect(isCircular(column,referencePath));
+        return equationDetail;
     }
     private Boolean isCircular(int parent, List<Integer> referenceColumnPath)
     {
@@ -213,7 +216,7 @@ public class CellData implements CellDataListener
         }
         return true;
     }
-    private void executeEquationInterpret(EquationTransform equationTransformed)
+    private void executeEquationInterpret(EquationDetail equationTransformed)
     {
         if(equationTransformed.getIsCorrect())
         {

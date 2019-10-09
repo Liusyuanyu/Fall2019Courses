@@ -33,5 +33,10 @@ class PostfixInterpreterTest {
             String errorInput = "ABC";
             postfixInterpreter.interpret(errorInput);
         });
+
+        assertThrows(RuntimeException.class, () -> {
+            String errorInput = "1 2 3 /";
+            postfixInterpreter.interpret(errorInput);
+        });
     }
 }

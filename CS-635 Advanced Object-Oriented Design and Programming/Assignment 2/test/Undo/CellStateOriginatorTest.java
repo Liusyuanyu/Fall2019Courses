@@ -77,5 +77,10 @@ class CellStateOriginatorTest {
         assertEquals(testCellData.getValueData(),returnCellData.getValueData());
         assertArrayEquals(testCellData.getRowAndColumn(),returnCellData.getRowAndColumn());
         assertEquals(testCellData.getEquationData(),returnCellData.getEquationData());
+
+        testOriginator.undoToLastSave(null);
+
+        returnCellData = testOriginator.getCellState();
+        assertNull(returnCellData);
     }
 }

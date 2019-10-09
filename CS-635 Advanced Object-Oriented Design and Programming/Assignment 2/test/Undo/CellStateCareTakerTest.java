@@ -56,5 +56,9 @@ class CellStateCareTakerTest {
         assertArrayEquals(testCellData.getRowAndColumn(),returnCellData.getRowAndColumn());
         assertEquals(testCellData.getEquationData(),returnCellData.getEquationData());
 
+        testCellStateCareTaker.undo(testOriginator);
+
+        returnCellData = testOriginator.getCellState();
+        assertNull(returnCellData);
     }
 }

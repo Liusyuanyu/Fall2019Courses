@@ -1,6 +1,6 @@
 package OperatorStrategy;
 
-import Interpreter.Expression;
+import Interpreter.*;
 
 import java.util.*;
 
@@ -11,13 +11,70 @@ public class OperationContext
     public OperationContext()
     {
         this.operationMap = new HashMap<>();
-
-        operationMap.put("+",new AdditionStrategy());
-        operationMap.put("-",new SubtractionStrategy());
-        operationMap.put("*",new MultiplicationStrategy());
-        operationMap.put("/",new DivisionStrategy());
-        operationMap.put("lg",new LogBaseTwoStrategy());
-        operationMap.put("sin",new SineStrategy());
+        operationMap.put("+",(Stack<Expression> expressionStack)->{
+            if(expressionStack.size() < 2)
+            {
+                throw new RuntimeException("The context isn't postfix.");
+            }
+            Expression rightExpression = expressionStack.pop();
+            Expression leftExpression = expressionStack.pop();
+            Expression operationExpression = new AdditionExpression(leftExpression,rightExpression);
+            expressionStack.add(operationExpression);
+            return expressionStack;
+             });
+        operationMap.put("-",(Stack<Expression> expressionStack)->{
+            if(expressionStack.size() < 2)
+            {
+                throw new RuntimeException("The context isn't postfix.");
+            }
+            Expression rightExpression = expressionStack.pop();
+            Expression leftExpression = expressionStack.pop();
+            Expression operationExpression = new SubtractionExpression(leftExpression,rightExpression);
+            expressionStack.add(operationExpression);
+            return expressionStack;
+        });
+        operationMap.put("*",(Stack<Expression> expressionStack)->{
+            if(expressionStack.size() < 2)
+            {
+                throw new RuntimeException("The context isn't postfix.");
+            }
+            Expression rightExpression = expressionStack.pop();
+            Expression leftExpression = expressionStack.pop();
+            Expression operationExpression = new MultiplicationExpression(leftExpression,rightExpression);
+            expressionStack.add(operationExpression);
+            return expressionStack;
+        });
+        operationMap.put("/",(Stack<Expression> expressionStack)->{
+            if(expressionStack.size() < 2)
+            {
+                throw new RuntimeException("The context isn't postfix.");
+            }
+            Expression rightExpression = expressionStack.pop();
+            Expression leftExpression = expressionStack.pop();
+            Expression operationExpression = new DivisionExpression(leftExpression,rightExpression);
+            expressionStack.add(operationExpression);
+            return expressionStack;
+        });
+        operationMap.put("lg",(Stack<Expression> expressionStack)->{
+            if(expressionStack.size() < 1)
+            {
+                throw new RuntimeException("The context isn't postfix.");
+            }
+            Expression expression = expressionStack.pop();
+            Expression operationExpression = new LogBaseTwoExpression(expression);
+            expressionStack.add(operationExpression);
+            return expressionStack;
+        });
+        operationMap.put("sin",(Stack<Expression> expressionStack)->{
+            if(expressionStack.size() < 1)
+            {
+                throw new RuntimeException("The context isn't postfix.");
+            }
+            Expression expression = expressionStack.pop();
+            Expression operationExpression = new SineExpression(expression);
+            expressionStack.add(operationExpression);
+            return expressionStack;
+        });
     }
 
     public List<String> getOperators()

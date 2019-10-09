@@ -6,8 +6,9 @@ import javax.swing.table.TableModel;
 import java.util.List;
 import java.util.Optional;
 
+import SpreadSheetState.SpreadSheetContext;
 import TableObjects.CellData;
-import TableObjects.ViewModes;
+import TableObjects.ViewStates;
 import Undo.CellStateCareTaker;
 import Undo.CellStateOriginator;
 
@@ -21,7 +22,9 @@ public class TableListener implements TableModelListener
     private CellStateCareTaker careTaker;
     private CellStateOriginator originator;
 
-    private ViewModes viewMode;
+    private ViewStates viewState;
+    private SpreadSheetContext spreadSheetContext;
+
 
     public TableListener()
     {
@@ -29,7 +32,9 @@ public class TableListener implements TableModelListener
         careTaker = new CellStateCareTaker();
         originator = new CellStateOriginator();
 
-        viewMode = ViewModes.ValueView;
+        viewState = ViewStates.ValueView;
+        spreadSheetContext = new SpreadSheetContext();
+
     }
     public void setCellDataList(List<CellData> cells)
     {
@@ -72,23 +77,17 @@ public class TableListener implements TableModelListener
         tableModel.setValueAt(value,row,column);
         isTableChangedWork = true;
     }
-    public void switchViewMode(ViewModes mode)
+    public void switchViewState(ViewStates state)
     {
-        viewMode = mode;
+        viewState = state;
         isTableChangedWork = false;
         int[] rowAndColumn;
+        spreadSheetContext.setSpreadSheetState(state);
         for(CellData cell : cellDataList)
         {
-            cell.setViewMode(mode);
+            cell.setViewState(state);
             rowAndColumn = cell.getRowAndColumn();
-            if(mode==ViewModes.ValueView)
-            {
-                tableModel.setValueAt(cell.getValueData(),rowAndColumn[0],rowAndColumn[1]);
-            }
-            else
-            {
-                tableModel.setValueAt(cell.getEquationData(),rowAndColumn[0],rowAndColumn[1]);
-            }
+            tableModel.setValueAt(spreadSheetContext.getCellContent(cell),rowAndColumn[0],rowAndColumn[1]);
         }
         isTableChangedWork = true;
     }
@@ -116,14 +115,7 @@ public class TableListener implements TableModelListener
             CellData undoTarget = getCellData(rowAndColumn[0],rowAndColumn[1]);
             undoTarget.setEquationData(lastState.getEquationData());
             undoTarget.setValueData(lastState.getValueData());
-            if(viewMode==ViewModes.ValueView)
-            {
-                updateValueNoEvent(rowAndColumn[0],rowAndColumn[1],undoTarget.getValueData());
-            }
-            else
-            {
-                updateValueNoEvent(rowAndColumn[0],rowAndColumn[1],undoTarget.getEquationData());
-            }
+            tableModel.setValueAt(spreadSheetContext.getCellContent(undoTarget),rowAndColumn[0],rowAndColumn[1]);
             undoTarget.undoEquationUpdate();
         }
     }

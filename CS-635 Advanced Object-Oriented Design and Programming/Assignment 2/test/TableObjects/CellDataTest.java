@@ -1,11 +1,46 @@
 package TableObjects;
 
+import Listeners.TableListener;
 import org.junit.jupiter.api.Test;
+
+import javax.swing.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CellDataTest {
 
+    private JTable table;
+    private TableListener listener;
+    private java.util.List<CellData> cellDataList;
+
+    public void SimulateTableAndCellData()
+    {
+        String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
+        Object[][] initialData = {{"","","","","","","","",""}};
+        table = new JTable(initialData,columnNames);
+        listener = new TableListener();
+        listener.setTableModel(table.getModel());
+
+        //Create a table to be value view
+        cellDataList = new ArrayList<>();
+        CellData newCell;
+        int columnNumber = 0;
+        for (String columnName: columnNames)
+        {
+            newCell = new CellData();
+            newCell.setRowAndColumn(0,columnNumber);
+            newCell.setColumnName(columnName);
+            newCell.setTableListener(listener);
+            columnNumber++;
+            cellDataList.add(newCell);
+        }
+        listener.setCellDataList(cellDataList);
+        listener.setColumnNames(Arrays.asList(columnNames));
+
+    }
     @Test
     void rowAndColumnTest() {
         CellData testCellData = new CellData();
@@ -87,6 +122,41 @@ class CellDataTest {
         testCellData.setColumnName(columnName);
         assertEquals(true,testCellData.isCellMatched(row,columnName));
         assertEquals(false,testCellData.isCellMatched(row,columnName+"Wrong"));
+
+    }
+
+    @Test
+    void someFunctionsTest() {
+        CellData testCellData = new CellData();
+
+        ViewStates mode = ViewStates.ValueView;
+        testCellData.setViewState(mode);
+
+        testCellData.resetUpdateTimes();
+    }
+
+    @Test
+    void cellDataContentChanged() {
+        SimulateTableAndCellData();
+        CellData testCellData = cellDataList.get(0);
+        testCellData.setViewState(ViewStates.ValueView);
+        testCellData.setRowAndColumn(0,0);
+
+        testCellData.cellDataContentChanged("Wrong");
+        assertEquals("Error",testCellData.getValueData());
+
+        String valueData = "5";
+        testCellData.cellDataContentChanged(valueData);
+        assertEquals(valueData,testCellData.getValueData());
+        assertEquals(valueData,testCellData.getEquationData());
+
+        testCellData.setViewState(ViewStates.EquationView);
+        testCellData.cellDataContentChanged("Wrong");
+        assertEquals("Error",testCellData.getValueData());
+        valueData = "5";
+        testCellData.cellDataContentChanged(valueData);
+        assertEquals(valueData+".0",testCellData.getValueData());
+        assertEquals(valueData,testCellData.getEquationData());
 
     }
 }
