@@ -3,11 +3,9 @@ package OperatorStrategy;
 import Interpreter.Expression;
 import Interpreter.TerminalExpression;
 import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class OperationContextTest {
@@ -15,8 +13,8 @@ class OperationContextTest {
     @Test
     void getOperators() {
         OperationContext testOperation = new OperationContext();
-        List<String> opertaorList = Arrays.asList(new String[]{"sin", "*", "+", "lg", "-", "/"});
-        assertEquals(opertaorList,testOperation.getOperators());
+        List<String> operatorList = Arrays.asList("sin", "*", "+", "lg", "-", "/");
+        assertEquals(operatorList,testOperation.getOperators());
     }
 
     @Test
@@ -27,9 +25,7 @@ class OperationContextTest {
         expressionStack.add(new TerminalExpression("10"));
 
         testOperation.setOperation("+");
-        assertThrows(RuntimeException.class, ()->{
-            testOperation.executeOperation(expressionStack);
-        });
+        assertThrows(RuntimeException.class, ()-> testOperation.executeOperation(expressionStack));
         expressionStack.add(new TerminalExpression("10"));
         expressionStack.add(new TerminalExpression("2.5"));
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
@@ -44,9 +40,7 @@ class OperationContextTest {
         expressionStack.add(new TerminalExpression("10"));
 
         testOperation.setOperation("-");
-        assertThrows(RuntimeException.class, ()->{
-            testOperation.executeOperation(expressionStack);
-        });
+        assertThrows(RuntimeException.class, ()-> testOperation.executeOperation(expressionStack));
         expressionStack.add(new TerminalExpression("10"));
         expressionStack.add(new TerminalExpression("2.5"));
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
@@ -61,9 +55,7 @@ class OperationContextTest {
         expressionStack.add(new TerminalExpression("10"));
 
         testOperation.setOperation("*");
-        assertThrows(RuntimeException.class, ()->{
-            testOperation.executeOperation(expressionStack);
-        });
+        assertThrows(RuntimeException.class, ()-> testOperation.executeOperation(expressionStack));
         expressionStack.add(new TerminalExpression("10"));
         expressionStack.add(new TerminalExpression("2.5"));
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
@@ -78,9 +70,7 @@ class OperationContextTest {
         expressionStack.add(new TerminalExpression("10"));
 
         testOperation.setOperation("/");
-        assertThrows(RuntimeException.class, ()->{
-            testOperation.executeOperation(expressionStack);
-        });
+        assertThrows(RuntimeException.class, ()-> testOperation.executeOperation(expressionStack));
         expressionStack.add(new TerminalExpression("10"));
         expressionStack.add(new TerminalExpression("2.5"));
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
@@ -93,13 +83,10 @@ class OperationContextTest {
         Stack<Expression> expressionStack = new Stack<>();
 
         testOperation.setOperation("sin");
-        assertThrows(RuntimeException.class, ()->{
-            testOperation.executeOperation(expressionStack);
-        });
+        assertThrows(RuntimeException.class, ()-> testOperation.executeOperation(expressionStack));
         expressionStack.add(new TerminalExpression("90"));
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
-        Double radians = Math.toRadians(90);
-        assertEquals(Math.sin(radians),resultStack.pop().interpret());
+        assertEquals(Math.sin(Math.toRadians(90)),resultStack.pop().interpret());
     }
 
     @Test
@@ -108,9 +95,7 @@ class OperationContextTest {
         Stack<Expression> expressionStack = new Stack<>();
 
         testOperation.setOperation("lg");
-        assertThrows(RuntimeException.class, ()->{
-            testOperation.executeOperation(expressionStack);
-        });
+        assertThrows(RuntimeException.class, ()-> testOperation.executeOperation(expressionStack));
         expressionStack.add(new TerminalExpression("20"));
         Stack<Expression> resultStack = testOperation.executeOperation(expressionStack);
         assertEquals(Math.log(20)/Math.log(2),resultStack.pop().interpret());
@@ -119,8 +104,6 @@ class OperationContextTest {
     @Test
     void errorSetOperation() {
         OperationContext testOperation = new OperationContext();
-        assertThrows(UnsupportedOperationException.class, ()->{
-            testOperation.setOperation("Wrong");
-        });
+        assertThrows(UnsupportedOperationException.class, ()-> testOperation.setOperation("Wrong"));
     }
 }

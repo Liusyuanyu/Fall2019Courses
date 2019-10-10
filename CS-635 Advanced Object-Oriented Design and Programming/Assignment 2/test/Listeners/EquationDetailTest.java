@@ -1,7 +1,6 @@
 package Listeners;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class EquationDetailTest {
@@ -24,7 +23,7 @@ class EquationDetailTest {
     }
 
     @Test
-    void isCorrectTeste() {
+    void isCorrectTest() {
         EquationDetail testEquationDetail = new EquationDetail();
         testEquationDetail.setIsCorrect(true);
         assertTrue(testEquationDetail.getIsCorrect());

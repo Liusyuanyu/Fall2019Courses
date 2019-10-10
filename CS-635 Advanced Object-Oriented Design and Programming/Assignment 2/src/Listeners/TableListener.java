@@ -3,6 +3,7 @@ package Listeners;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,13 +19,10 @@ public class TableListener implements TableModelListener
     private List<String> columnNames;
     private TableModel tableModel;
     private Boolean isTableChangedWork;
-
     private CellStateCareTaker careTaker;
     private CellStateOriginator originator;
-
     private ViewStates viewState;
     private SpreadSheetContext spreadSheetContext;
-
 
     public TableListener()
     {
@@ -35,6 +33,8 @@ public class TableListener implements TableModelListener
         viewState = ViewStates.ValueView;
         spreadSheetContext = new SpreadSheetContext();
 
+        cellDataList = new ArrayList<>();
+        columnNames = new ArrayList<>();
     }
     public void setCellDataList(List<CellData> cells)
     {
@@ -47,7 +47,7 @@ public class TableListener implements TableModelListener
 
     public CellData getCellData(int row, Object column)
     {
-        if(cellDataList ==null)
+        if(cellDataList.isEmpty())
             return null;
         Optional<CellData> resultList;
         if(column instanceof String)

@@ -3,7 +3,6 @@ package SpreadSheetState;
 import TableObjects.CellData;
 import TableObjects.ViewStates;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SpreadSheetContextTest {

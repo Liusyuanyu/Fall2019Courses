@@ -2,49 +2,16 @@ package TableObjects;
 
 import Listeners.TableListener;
 import org.junit.jupiter.api.Test;
-
 import javax.swing.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CellDataTest {
 
-    private JTable table;
-    private TableListener listener;
-    private java.util.List<CellData> cellDataList;
-
-    public void SimulateTableAndCellData()
-    {
-        String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
-        Object[][] initialData = {{"","","","","","","","",""}};
-        table = new JTable(initialData,columnNames);
-        listener = new TableListener();
-        listener.setTableModel(table.getModel());
-
-        //Create a table to be value view
-        cellDataList = new ArrayList<>();
-        CellData newCell;
-        int columnNumber = 0;
-        for (String columnName: columnNames)
-        {
-            newCell = new CellData();
-            newCell.setRowAndColumn(0,columnNumber);
-            newCell.setColumnName(columnName);
-            newCell.setTableListener(listener);
-            columnNumber++;
-            cellDataList.add(newCell);
-        }
-        listener.setCellDataList(cellDataList);
-        listener.setColumnNames(Arrays.asList(columnNames));
-
-    }
     @Test
     void rowAndColumnTest() {
         CellData testCellData = new CellData();
-
         int row = 0, column =0;
         testCellData.setRowAndColumn(row,column);
         assertArrayEquals(new int[]{row,column},testCellData.getRowAndColumn());
@@ -137,7 +104,28 @@ class CellDataTest {
 
     @Test
     void cellDataContentChanged() {
-        SimulateTableAndCellData();
+        String[] columnNames = {"$A", "$B", "$C", "$D", "$E", "$F", "$G", "$H", "$I"};
+        Object[][] initialData = {{"","","","","","","","",""}};
+        JTable table = new JTable(initialData,columnNames);
+        TableListener listener = new TableListener();
+        listener.setTableModel(table.getModel());
+
+        //Create a table to be value view
+        java.util.List<CellData> cellDataList = new ArrayList<>();
+        CellData newCell;
+        int columnNumber = 0;
+        for (String columnName: columnNames)
+        {
+            newCell = new CellData();
+            newCell.setRowAndColumn(0,columnNumber);
+            newCell.setColumnName(columnName);
+            newCell.setTableListener(listener);
+            columnNumber++;
+            cellDataList.add(newCell);
+        }
+        listener.setCellDataList(cellDataList);
+        listener.setColumnNames(Arrays.asList(columnNames));
+
         CellData testCellData = cellDataList.get(0);
         testCellData.setViewState(ViewStates.ValueView);
         testCellData.setRowAndColumn(0,0);

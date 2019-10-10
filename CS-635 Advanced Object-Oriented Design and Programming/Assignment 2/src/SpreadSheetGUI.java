@@ -26,6 +26,8 @@ class SpreadSheetGUI {
         tableListener.setColumnNames(Arrays.asList(columnNames));
         tableListener.setTableModel(spreadSheetTableModel);
 
+        JScrollPane scrollPane = new JScrollPane(spreadSheetTable);
+
         //Create a table to be value view
         java.util.List<CellData> cellDataList = new ArrayList<>();
         CellData newCell;
@@ -48,29 +50,23 @@ class SpreadSheetGUI {
         viewModeLabel.setMinimumSize(new Dimension(100,30));
 
         //Create an Undo button
-        JButton undo =new JButton("Undo");//Undo button
-
+        JButton undo =new JButton("Undo");
         UndoButtonListener undoActionListener = new UndoButtonListener();
         undo.addActionListener(undoActionListener);
         undoActionListener.setTableListener(tableListener);
 
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setVisible(true);
-        scrollPane.setViewportView(spreadSheetTable);
-
-        //Create buttons
-        JButton switchView =new JButton("Switch View");//Switch button
+        //Create Switch button
+        JButton switchView =new JButton("Switch View");
         SwitchViewButtonListener switchButtonListener = new SwitchViewButtonListener();
         switchView.addActionListener(switchButtonListener);
         switchButtonListener.setTableListener(tableListener);
         switchButtonListener.setViewModeLabel(viewModeLabel);
-        switchButtonListener.setCurrentViewMode(ViewStates.ValueView);
+        switchButtonListener.setCurrentViewState(ViewStates.ValueView);
 
         JFrame frame=new JFrame();//creating instance of JFrame
         frame.setTitle("SpreadSheet");
         frame.setLayout(new GridBagLayout());
-        frame.setSize(600,120);//400 width and 500 height
-        frame.setLocation(100,200);
+        frame.setSize(600,120);
         frame.setVisible(true);//making the frame visible
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -78,19 +74,15 @@ class SpreadSheetGUI {
         bagConstraints.fill = GridBagConstraints.WEST;
         bagConstraints.weightx = 0.6;
         bagConstraints.gridx = 0;
-        bagConstraints.gridy = 0;
         frame.add(viewModeLabel,bagConstraints);//adding label in JFrame
 
         bagConstraints.fill = GridBagConstraints.CENTER;
         bagConstraints.weightx = 0.2;
         bagConstraints.gridx = 1;
-        bagConstraints.gridy = 0;
         frame.add(switchView,bagConstraints);//adding button in JFrame
 
         bagConstraints.fill = GridBagConstraints.EAST;
-        bagConstraints.weightx = 0.2;
         bagConstraints.gridx = 2;
-        bagConstraints.gridy = 0;
         frame.add(undo,bagConstraints);//adding button in JFrame
 
         bagConstraints.fill = GridBagConstraints.HORIZONTAL;

@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static java.lang.Math.log;
 import org.junit.jupiter.api.Test;
 
-
 class LogBaseTwoExpressionTest {
     @Test
     void interpret() {

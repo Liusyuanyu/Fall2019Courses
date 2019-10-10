@@ -10,24 +10,24 @@ public class SwitchViewButtonListener implements ActionListener
 {
     private JLabel viewModeLabel;
     private TableListener tableListener;
-    private ViewStates currentViewMode;
+    private ViewStates currentViewState;
 
     public SwitchViewButtonListener(){}
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(currentViewMode == ViewStates.ValueView)
+        if(currentViewState == ViewStates.ValueView)
         {
             viewModeLabel.setText("Equation View");
-            currentViewMode = ViewStates.EquationView;
-            tableListener.switchViewState(currentViewMode);
+            currentViewState = ViewStates.EquationView;
+            tableListener.switchViewState(currentViewState);
         }
         else//ViewStates.EquationView
         {
             viewModeLabel.setText("Value View");
-            currentViewMode = ViewStates.ValueView;
-            tableListener.switchViewState(currentViewMode);
+            currentViewState = ViewStates.ValueView;
+            tableListener.switchViewState(currentViewState);
         }
     }
 
@@ -38,8 +38,8 @@ public class SwitchViewButtonListener implements ActionListener
     {
         tableListener = listener;
     }
-    public void setCurrentViewMode(ViewStates mode)
+    public void setCurrentViewState(ViewStates state)
     {
-        currentViewMode = mode;
+        currentViewState = state;
     }
 }
