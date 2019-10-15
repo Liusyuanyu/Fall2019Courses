@@ -121,10 +121,63 @@ scikit_testYDiff = np.abs(scikit_yHat - testY)
 avgErr = np.mean(scikit_testYDiff)
 stdErr = np.std(scikit_testYDiff)
 
-print('SciKit average error: {} ({})'.format(avgErr, stdErr))
+print('SciKit average error        : {:1.8f} ({:1.8f})'.format(avgErr, stdErr))
 
 my_testYDiff = np.abs(my_yHat - testY)
 avgErr = np.mean(my_testYDiff)
 stdErr = np.std(my_testYDiff)
 
-print('My code average error: {} ({})'.format(avgErr, stdErr))
+print('Self-developed average error: {:1.8f} ({:1.8f})'.format(avgErr, stdErr))
+
+
+
+def func_calConfusionMatrix(predY, trueY):
+    labels = np.unique(trueY)
+    confusion_mat = pd.DataFrame(columns=labels)
+    total_y = len(trueY)
+    accuracy = np.sum(predY==trueY) / total_y
+
+    for gt in labels:
+        arow=[]
+        for pred in labels:
+            onecell = np.sum(predY[np.where(trueY ==gt)] == pred)
+            arow +=[onecell]
+        confusion_mat.loc[gt] = arow
+    
+    recall = []
+    precision = []
+    for gt in labels:
+        prec_total = confusion_mat[gt].sum()
+        recall_total = confusion_mat.loc[gt].sum()
+        precision += [confusion_mat[gt][gt]/prec_total]
+        recall += [confusion_mat[gt][gt]/recall_total]
+
+    recall_precision_df = pd.DataFrame(columns=labels)
+    recall_precision_df.loc['recall'] = recall
+    recall_precision_df.loc['precision'] = precision
+    
+    return  accuracy, confusion_mat, recall_precision_df
+
+
+predY = np.asarray(scikit_yHat)
+trueY = testY
+acc, conf , score = func_calConfusionMatrix(predY,trueY)
+
+
+print('SciKit confusion matrix:')
+print(conf)
+print('Accuracy')
+print(acc)
+print('Precision and Recall')
+print(score)
+
+
+predY = np.asarray(my_yHat)
+acc, conf , score = func_calConfusionMatrix(predY,trueY)
+
+print('Self_developed confusion matrix:')
+print(conf)
+print('Accuracy')
+print(acc)
+print('Precision and Recall')
+print(score)
