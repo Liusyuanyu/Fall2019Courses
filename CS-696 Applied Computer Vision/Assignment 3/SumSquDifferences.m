@@ -21,8 +21,8 @@ function [match_rect, euclidean_dist] = SumSquDifferences(input,template,pos)
     end
     
     [ypeak, xpeak] = find(ssd_mat==min(ssd_mat(:)));
-    mid_x = tmp_rows/2;
-    mid_y = tmp_columns/2;
+    mid_x = ceil(tmp_columns/2);
+    mid_y = ceil(tmp_rows/2);
     
     if size(ypeak,1) ~= 1
         euclidean_list = [];
