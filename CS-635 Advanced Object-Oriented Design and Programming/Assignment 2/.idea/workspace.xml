@@ -9,200 +9,220 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/spreadsheet_hw2$CellDataTest_cellDataContentChanged.ic" NAME="CellDataTest.cellDataContentChanged Coverage Results" MODIFIED="1570577823215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>TableObjects.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/spreadsheet_hw2$All_in_spreadsheet_hw2.ic" NAME="All in spreadsheet_hw2 Coverage Results" MODIFIED="1570668054016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/spreadsheet_hw2$SpreadSheetGUI.ic" NAME="SpreadSheetGUI Coverage Results" MODIFIED="1570600264757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="212" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="swing_gui" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SpreadSheetGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="34" column="40" lean-forward="true" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Interpreter/PostfixInterpreter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Interpreter/MultiplicationExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/OperationStrategy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="34" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/AdditionStrategy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/OperationContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#317#318#0" expanded="true" />
-                <element signature="e#349#350#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Arquillian JUnit Test Class" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>``</find>
-      <find>capacity</find>
+      <find>&quot;&quot;</find>
+      <find>interpre</find>
+      <find>resetUpdateTimes</find>
+      <find>getOperators</find>
+      <find>interpret</find>
+      <find>inter</find>
+      <find>cellDataContentChanged</find>
+      <find>String::isEmpty</find>
+      <find>.interpreter</find>
+      <find>TerminalExpressionTest.interpret</find>
+      <find>Math</find>
+      <find>org.junit.jupiter.api.</find>
+      <find>%</find>
+      <find>assertthr</find>
+      <find>equationViewS</find>
+      <find>equationView</find>
+      <find>ViewMode</find>
+      <find>spreadSheetContext</find>
+      <find>setOperation</find>
+      <find>model</find>
+      <find>getModel</find>
+      <find>setCurrentViewMode</find>
+      <find>getCellData</find>
+      <find>tableChanged</find>
+      <find>isTableChangedWork</find>
+      <find>event</find>
+      <find>spreadSheetTable</find>
+      <find>columnNames</find>
+      <find>radians</find>
+      <find>editedCell</find>
     </findStrings>
     <replaceStrings>
       <replace>size</replace>
+      <replace>$</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.java" />
-        <option value="$PROJECT_DIR$/src/FirstSwingExample.java" />
-        <option value="$PROJECT_DIR$/src/SpreedSheetGUI.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/NonTerminalExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/AddExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/Expression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/SubtractionExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/DivisionExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/SinePattern.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/AdditionExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/LogBaseTwoExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/TerminalExpression.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/InterpreterPattern.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/PostixInterpreter.java" />
-        <option value="$PROJECT_DIR$/src/Interpreter/MultiplicationExpression.java" />
+        <option value="$PROJECT_DIR$/src/Undo/CellStateOriginator.java" />
         <option value="$PROJECT_DIR$/src/Interpreter/SineExpression.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/OperatorStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/OperationStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/AddStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/SubtractionStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/DivisionStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/MultiplicationStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/LogBaseTwoStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/SineStrategy.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/OperationCcontext.java" />
-        <option value="$PROJECT_DIR$/src/OperatorStrategy/OperationContext.java" />
-        <option value="$PROJECT_DIR$/src/SpreadSheetGUI.java" />
+        <option value="$PROJECT_DIR$/src/Undo/CellStateCareTaker.java" />
+        <option value="$PROJECT_DIR$/src/Listeners/CellDataListener.java" />
         <option value="$PROJECT_DIR$/src/Interpreter/PostfixInterpreter.java" />
+        <option value="$PROJECT_DIR$/src/OperatorStrategy/OperationStrategy.java" />
+        <option value="$PROJECT_DIR$/src/Listeners/UndoButtonListener.java" />
+        <option value="$PROJECT_DIR$/src/Interpreter/TerminalExpression.java" />
+        <option value="$PROJECT_DIR$/src/Interpreter/AdditionExpression.java" />
+        <option value="$PROJECT_DIR$/src/Interpreter/SubtractionExpression.java" />
+        <option value="$PROJECT_DIR$/src/UnitTest/Interpreter/TerminalExpressionTest.java" />
+        <option value="$PROJECT_DIR$/src/OperatorStrategy/DivisionStrategy.java" />
+        <option value="$PROJECT_DIR$/src/OperatorStrategy/AdditionStrategy.java" />
+        <option value="$PROJECT_DIR$/src/OperatorStrategy/SubtractionStrategy.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/MultiplicationExpressionTest.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/SineExpressionTest.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/SubtractionExpressionTest.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/TerminalExpressionTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/DivisionStrategyTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/AdditionStrategyTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/MultiplicationStrategyTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/SubtractionStrategyTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/LogBaseTwoStrategyTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/SineStrategyTest.java" />
+        <option value="$PROJECT_DIR$/src/Listeners/EquationTransform.java" />
+        <option value="$PROJECT_DIR$/src/Listeners/EquationDetail.java" />
+        <option value="$PROJECT_DIR$/src/TableObjects/ViewState.java" />
+        <option value="$PROJECT_DIR$/test/TableObjects/EquationViewState.java" />
+        <option value="$PROJECT_DIR$/test/TableObjects/ValueViewState2.java" />
+        <option value="$PROJECT_DIR$/src/TableObjects/EquationViewState.java" />
+        <option value="$PROJECT_DIR$/src/TableObjects/ValueViewState.java" />
+        <option value="$PROJECT_DIR$/src/TableObjects/SpreadSheetContext.java" />
+        <option value="$PROJECT_DIR$/src/TableObjects/SpreadSheetViewState.java" />
+        <option value="$PROJECT_DIR$/src/TableObjects/CellData.java" />
+        <option value="$PROJECT_DIR$/src/SpreadSheetState/SpreadSheetContext.java" />
+        <option value="$PROJECT_DIR$/src/OperatorStrategy/OperationContext.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/PostfixInterpreterTest.java" />
+        <option value="$PROJECT_DIR$/src/Listeners/SwitchViewButtonListener.java" />
+        <option value="$PROJECT_DIR$/src/Listeners/TableListener.java" />
+        <option value="$PROJECT_DIR$/src/SpreadSheetGUI.java" />
+        <option value="$PROJECT_DIR$/test/Undo/CellStateCareTakerTest.java" />
+        <option value="$PROJECT_DIR$/test/Undo/CellStateOriginatorTest.java" />
+        <option value="$PROJECT_DIR$/test/TableObjects/CellDataTest.java" />
+        <option value="$PROJECT_DIR$/test/SpreadSheetState/SpreadSheetContextTest.java" />
+        <option value="$PROJECT_DIR$/test/OperatorStrategy/OperationContextTest.java" />
+        <option value="$PROJECT_DIR$/test/Listeners/TableListenerTest.java" />
+        <option value="$PROJECT_DIR$/test/Listeners/SwitchViewButtonListenerTest.java" />
+        <option value="$PROJECT_DIR$/test/Listeners/EquationDetailTest.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/AdditionExpressionTest.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/DivisionExpressionTest.java" />
+        <option value="$PROJECT_DIR$/test/Interpreter/LogBaseTwoExpressionTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="252" />
-    <option name="y" value="125" />
-    <option name="width" value="1070" />
-    <option name="height" value="724" />
+    <option name="x" value="-6" />
+    <option name="y" value="28" />
+    <option name="width" value="1143" />
+    <option name="height" value="664" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="swing_gui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swing_gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swing_gui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swing_gui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swing_gui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swing_gui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Interpreter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="swing_gui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="swing_gui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="OperatorStrategy" type="462c0819:PsiDirectoryNode" />
+              <item name="spreadsheet_hw2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spreadsheet_hw2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569622409213" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../MyLeetcodeSamples" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1570671901602" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jdk-13/lib/jrt-fs.jar" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Courses\2019 Fall\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\swing_gui\Backup code" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Listeners" />
+      <recent name="SpreadSheetState" />
+      <recent name="TableObjects" />
+      <recent name="Undo" />
       <recent name="OperatorStrategy" />
-      <recent name="Interpreter" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Courses\2019 Fall (Processing)\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\spreadsheet_hw2\test" />
       <recent name="D:\Courses\2019 Fall\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\swing_gui\Temp" />
       <recent name="D:\Courses\2019 Fall\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\swing_gui\src" />
       <recent name="D:\Courses\2019 Fall\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\swing_gui\Interpreter" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="SpreadSheetState" />
+      <recent name="TableObjects" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="TableObjects" />
+      <recent name="Listeners" />
+      <recent name="OperatorStrategy" />
+      <recent name="Interpreter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Courses\2019 Fall\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\spreadsheet_hw2\Backup code" />
+      <recent name="D:\Courses\2019 Fall\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\swing_gui\Backup code" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -217,16 +237,37 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in spreadsheet_hw2">
     <configuration name="SpreadSheetGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SpreadSheetGUI" />
-      <module name="swing_gui" />
+      <module name="spreadsheet_hw2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in spreadsheet_hw2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spreadsheet_hw2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="spreadsheet_hw2" type="JarApplication" factoryName="JAR Application">
+      <option name="JAR_PATH" value="C:/Program Files/Java/jdk-13/lib/jrt-fs.jar" />
+      <option name="WORKING_DIRECTORY" value="D:\Courses\2019 Fall (Processing)\CS-635 Advanced Object-Oriented Design and Programming\Assignments\Assignment 2\spreadsheet_hw2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.SpreadSheetGUI" />
+      <item itemvalue="JAR Application.spreadsheet_hw2" />
+      <item itemvalue="JUnit.All in spreadsheet_hw2" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in spreadsheet_hw2" />
         <item itemvalue="Application.SpreadSheetGUI" />
       </list>
     </recent_temporary>
@@ -244,12 +285,55 @@
       <workItem from="1569456885104" duration="12920000" />
       <workItem from="1569546205295" duration="3485000" />
       <workItem from="1569605097777" duration="1237000" />
-      <workItem from="1569608041540" duration="7340000" />
+      <workItem from="1569608041540" duration="7798000" />
+      <workItem from="1569622905123" duration="31673000" />
+      <workItem from="1569975824448" duration="255000" />
+      <workItem from="1569976495926" duration="12388000" />
+      <workItem from="1570056477462" duration="43743000" />
+      <workItem from="1570223934895" duration="1542000" />
+      <workItem from="1570228056488" duration="21064000" />
+      <workItem from="1570342463145" duration="740000" />
+      <workItem from="1570343391299" duration="4694000" />
+      <workItem from="1570491013890" duration="9750000" />
+      <workItem from="1570571505170" duration="13914000" />
+      <workItem from="1570657136003" duration="12858000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_spreadsheet_hw2 - 2019.10.09 at 18h 02m 17s.xml">
+      <configuration name="All in spreadsheet_hw2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_spreadsheet_hw2 - 2019.10.09 at 18h 09m 53s.xml">
+      <configuration name="All in spreadsheet_hw2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TableListenerTest_getCellDataNullTest - 2019.10.09 at 18h 13m 13s.xml">
+      <configuration name="TableListenerTest.getCellDataNullTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CellStateCareTakerTest_undoFunctionTest - 2019.10.09 at 18h 32m 44s.xml">
+      <configuration name="CellStateCareTakerTest.undoFunctionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CellStateCareTakerTest - 2019.10.09 at 18h 33m 38s.xml">
+      <configuration name="CellStateCareTakerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CellStateCareTakerTest_undoFunctionTest - 2019.10.09 at 18h 34m 32s.xml">
+      <configuration name="CellStateCareTakerTest.undoFunctionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CellStateCareTakerTest_undoFunctionTest - 2019.10.09 at 18h 35m 03s.xml">
+      <configuration name="CellStateCareTakerTest.undoFunctionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CellStateOriginatorTest_undoFunctionTest - 2019.10.09 at 18h 37m 20s.xml">
+      <configuration name="CellStateOriginatorTest.undoFunctionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CellStateOriginatorTest_undoFunctionTest - 2019.10.09 at 18h 39m 26s.xml">
+      <configuration name="CellStateOriginatorTest.undoFunctionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_spreadsheet_hw2 - 2019.10.09 at 18h 40m 02s.xml">
+      <configuration name="All in spreadsheet_hw2" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24982000" />
+    <option name="totallyTimeSpent" value="178061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,10 +345,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="28" width="1143" height="664" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.16717096" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.34256694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -272,212 +355,415 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.5008183" side_tool="true" weight="0.1580938" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30441898" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38625205" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32502708" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.46327683" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.34019503" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32733223" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3255814" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32724252" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32405892" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.28602383" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.2156013" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32928678" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.26972282" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.25417298" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5008183" side_tool="true" weight="0.1580938" />
+      <window_info active="true" anchor="bottom" id="Inspection Results" order="0" visible="true" weight="0.32890365" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32724252" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49924356" weight="0.32225913" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49924356" weight="0.3654485" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3255814" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32724252" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.32405892" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32225913" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32928678" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Backup code/EquationSpreadSheetListener_bk.java</url>
+          <line>73</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>2</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>true</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-13/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/MultiplicationStrategyTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/MultiplicationStrategy.java" />
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/SubtractionStrategy.java" />
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/SineStrategy.java" />
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/LogBaseTwoStrategyTest.java" />
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/AdditionStrategyTest.java" />
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/SineStrategyTest.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.5.2/junit-jupiter-api-5.5.2.jar!/org/junit/jupiter/api/AssertThrows.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="37" column="62" lean-forward="true" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        <state relative-caret-position="151">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Temp/DivisionExpression.java" />
-    <entry file="file://$PROJECT_DIR$/Temp/LogBaseTwoExpression.java" />
-    <entry file="file://$PROJECT_DIR$/Temp/MultiplicationExpression.java" />
-    <entry file="file://$PROJECT_DIR$/Temp/SineExpression.java" />
-    <entry file="file://$PROJECT_DIR$/Temp/SubtractionExpression.java" />
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/DivisionExpression.java">
+    <entry file="file://$PROJECT_DIR$/src/TableObjects/ViewStates.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+        <state relative-caret-position="40">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/SubtractionExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/SinePattern.java" />
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/SineExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/AdditionExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/LogBaseTwoExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
-          <folding>
-            <element signature="e#246#247#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/TerminalExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#237#238#0" expanded="true" />
-            <element signature="e#274#275#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/Expression.java">
+    <entry file="file://$PROJECT_DIR$/test/TableObjects/EquationViewState.java" />
+    <entry file="file://$PROJECT_DIR$/test/TableObjects/ValueViewState2.java" />
+    <entry file="file://$PROJECT_DIR$/test/SpreadSheetState/EquationViewState.java" />
+    <entry file="file://$PROJECT_DIR$/test/SpreadSheetState/SpreadSheetViewState.java" />
+    <entry file="file://$PROJECT_DIR$/test/SpreadSheetState/SpreadSheetContext.java" />
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/DivisionStrategy.java" />
+    <entry file="file://$PROJECT_DIR$/test/SpreadSheetState/ValueViewState.java" />
+    <entry file="file://$PROJECT_DIR$/src/SpreadSheetState/SpreadSheetViewState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backup code/PostfixInterpreter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-13/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="2406" selection-start-line="2406" selection-end-line="2406" />
-          <folding>
-            <element signature="e#25050#25051#0" expanded="true" />
-            <element signature="e#25096#25097#0" expanded="true" />
-            <element signature="e#96197#96198#0" expanded="true" />
-            <element signature="e#144529#144530#0" expanded="true" />
-            <element signature="e#144583#144584#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/DivisionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/SubtractionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/MultiplicationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/LogBaseTwoStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/SineStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/AdditionStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/OperationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/OperationContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#317#318#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-          </folding>
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interpreter/MultiplicationExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        <state relative-caret-position="140">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SpreadSheetGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/AdditionStrategy.java" />
+    <entry file="file://$PROJECT_DIR$/src/Interpreter/LogBaseTwoExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="34" column="40" lean-forward="true" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/LogBaseTwoStrategy.java" />
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/SubtractionStrategyTest.java" />
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/DivisionStrategyTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/OperatorStrategy/OperationContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="84" column="28" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3488#3489#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Undo/CellStateOriginator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="method#setCellState#0;class#CellStateOriginator#0" />
+            <element signature="method#undoToLastSave#0;class#CellStateOriginator#0" />
+            <element signature="class#Memento#0;class#CellStateOriginator#0" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1150#1151#0" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Undo/CellStateCareTaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interpreter/PostfixInterpreter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interpreter/PostfixInterpreter.java">
+    <entry file="file://$PROJECT_DIR$/test/Interpreter/PostfixInterpreterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        <state relative-caret-position="660">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-13/lib/src.zip!/java.desktop/javax/swing/event/TableModelEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <caret line="119" column="11" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-13/lib/src.zip!/java.desktop/java/awt/event/ActionEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="157" column="11" selection-start-line="157" selection-start-column="11" selection-end-line="157" selection-end-column="11" />
+          <folding>
+            <element signature="e#4508#4509#0" expanded="true" />
+            <element signature="e#4552#4553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.5.2/junit-platform-commons-1.5.2.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="362" selection-start-line="362" selection-end-line="362" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SpreadSheetState/SpreadSheetContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TableObjects/CellData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CellData#0;class#CellData#0" />
+            <element signature="method#setRowAndColumn#0;class#CellData#0" />
+            <element signature="e#1942#1943#0" expanded="true" />
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="method#undoEquationUpdate#0;class#CellData#0" />
+            <element signature="method#cellDataUpdate#0;class#CellData#0" />
+            <element signature="method#fireCellDataChanged#0;class#CellData#0" />
+            <element signature="method#isCircular#0;class#CellData#0" />
+            <element signature="method#isNumeric#0;class#CellData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-13/lib/src.zip!/java.desktop/javax/swing/event/TableModelListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listeners/TableListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="141" column="35" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#TableListener#0;class#TableListener#0" />
+            <element signature="method#getCellData#0;class#TableListener#0" />
+            <element signature="method#updateValueNoEvent#0;class#TableListener#0" />
+            <element signature="method#switchViewState#0;class#TableListener#0" />
+            <element signature="method#resetUpdateTimes#0;class#TableListener#0" />
+            <element signature="method#saveCellState#0;class#TableListener#0" />
+            <element signature="method#undoCellState#0;class#TableListener#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listeners/SwitchViewButtonListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listeners/UndoButtonListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Listeners/EquationDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#829#830#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Undo/CellStateCareTakerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Undo/CellStateOriginatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/TableObjects/CellDataTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="method#rowAndColumnTest#0;class#CellDataTest#0" />
+            <element signature="method#valueDataTest#0;class#CellDataTest#0" />
+            <element signature="method#equationDataTest#0;class#CellDataTest#0" />
+            <element signature="method#isCellMatched#0;class#CellDataTest#0" />
+            <element signature="method#someFunctionsTest#0;class#CellDataTest#0" />
+            <element signature="method#cellDataContentChanged#0;class#CellDataTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/SpreadSheetState/SpreadSheetContextTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/OperatorStrategy/OperationContextTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SpreadSheetGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="61" column="60" selection-start-line="61" selection-start-column="60" selection-end-line="61" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Listeners/TableListenerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="method#switchViewStateTest#0;class#TableListenerTest#0" />
+            <element signature="method#getCellDataNullTest#0;class#TableListenerTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Listeners/EquationDetailTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Listeners/SwitchViewButtonListenerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Interpreter/AdditionExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Interpreter/DivisionExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Interpreter/LogBaseTwoExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Interpreter/MultiplicationExpressionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -537,7 +823,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>swing_gui</last-edited>
+          <last-edited>spreadsheet_hw2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

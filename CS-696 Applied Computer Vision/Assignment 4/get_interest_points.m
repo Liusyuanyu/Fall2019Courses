@@ -33,7 +33,6 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
     else
         gray_image = image;
     end
-%     gray_image = im2uint8(gray_image);
     gray_image = double(gray_image );
 
     [Gx, Gy] = imgradientxy(gray_image,'prewitt');
@@ -62,29 +61,25 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
     end
     
     %?Q*RMax???????????????
-    Q=0.01;
+    Q=0.1;
     R_corner=(r_mat>=(Q*RMax)).*r_mat;
-
-    %??3x3???????????????8?????????????????????
-    fun = @(x) max(x(:)); 
-    R_localMax = nlfilter(r_mat,[3 3],fun); 
-
-    %?????????????8??????????????
-    %??????????
-    [row,col]=find(R_localMax(2:rows-1,2:columns-1)==R_corner(2:rows-1,2:columns-1));
-
-    %????????
-%     figure('name','Result');
-    figure('name','Result2');
-    subplot(1,2,1),imshow(gray_image),title('my-Harris'),
-    hold on
-    plot(col,row, 'b*'),
-    hold off
+    R_localMax = colfilt(r_mat,[3 3],'sliding',@max);
+    [row,col]=find(R_localMax(2:rows-1,2:columns-1)==R_corner(2:rows-1,2:columns-1) & R_corner(2:rows-1,2:columns-1)~=0);
+    row = row+1;
+    col = col+1;
+    
+%     %????????
+% %     figure('name','Result');
+%     figure('name','Result2');
+%     subplot(1,2,1),imshow(gray_image),title('my-Harris'),
+%     hold on
+%     plot(col,row, 'b*'),
+%     hold off
 
 
 
-    x=0;
-    y=0;
+    x=col;
+    y=row;
     confidence=0;
     scale=0;
     orientation=0;
