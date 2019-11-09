@@ -33,7 +33,7 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
     else
         gray_image = image;
     end
-    gray_image = double(gray_image );
+    gray_image = im2double(gray_image );
 
     [Gx, Gy] = imgradientxy(gray_image,'prewitt');
     Ix2 = Gx.^2;
@@ -68,14 +68,6 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
     row = row+1;
     col = col+1;
     
-%     %????????
-% %     figure('name','Result');
-%     figure('name','Result2');
-%     subplot(1,2,1),imshow(gray_image),title('my-Harris'),
-%     hold on
-%     plot(col,row, 'b*'),
-%     hold off
-
 
 
     x=col;
