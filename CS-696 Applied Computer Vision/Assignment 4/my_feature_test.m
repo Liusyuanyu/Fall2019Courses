@@ -54,6 +54,115 @@ gradient_hist(1:5) = N;
 gradient_hist(5:8) = gradient_hist(5:8) +N(1:end-1);
 gradient_hist(1) =gradient_hist(1)+ N(end);
 
+%%
+
+feature_width = 16;
+interest_point = [5,5];
+
+cell_width = feature_width/4;
+
+neg_offset= floor((cell_width-1)/2);
+pos_offset= ceil((cell_width-1)/2);
+
+first_x = interest_point(1) - cell_width - neg_offset;
+first_y = interest_point(2) - cell_width - neg_offset;
+
+gradient_hist = zeros(1,8);
+
+for x_ind = 1:4
+    
+    start_x = first_x + cell_width*(x_ind-1);
+    end_x = start_x + cell_width-1;
+
+    start_y = first_y + cell_width*(x_ind-1);
+    end_y = start_y+ cell_width-1;
+    
+    disp("Coordinate");
+    disp([start_x,start_y]);
+    disp([end_x,end_y]);
+
+    
+end
+
+%%
+interest_point = [x(100),y(100)];
+feature_width = 16;
+cell_width = feature_width/4;
+neg_offset= floor((cell_width-1)/2);
+pos_offset= ceil((cell_width-1)/2);
+[max_height,max_width] = size(Gdir);
+
+
+
+first_x = interest_point(1) - cell_width - neg_offset;
+first_y = interest_point(2) - cell_width - neg_offset;    
+
+alldime = [];
+for y_ind = 1:4
+    for x_ind = 1:4
+        gradient_hist = zeros(1,8);
+        start_x = first_x + cell_width*(x_ind-1);
+        end_x = start_x + cell_width-1;
+
+        start_y = first_y + cell_width*(y_ind-1);
+        end_y = start_y+ cell_width-1;
+        
+        if (start_x <=0 && end_x <=0) || (start_x >max_width && end_x >max_width)
+            alldime = horzcat(alldime,gradient_hist);
+            continue;
+        end
+        
+        if (start_y <=0 && end_y <=0) || (start_y >max_height && end_y >max_height)
+            alldime = horzcat(alldime,gradient_hist);
+            continue;
+        end
+        
+        if start_x <= 0
+            start_x = 1;
+        end  
+        if end_x > max_width
+            end_x = max_width;
+        end
+        if start_y <= 0
+            start_y = 1;
+        end
+        if end_y > max_height
+            end_y = max_height;
+        end
+        
+        for w_x_ind = start_x:end_x
+            for w_y_ind = start_y:end_y
+                if(Gmag(w_y_ind,w_x_ind)==0)
+                    continue;
+                end
+                hist_ind = directionIndex_old(Gdir(w_y_ind,w_x_ind));
+                gradient_hist(hist_ind) =gradient_hist(hist_ind)+ Gmag(w_y_ind,w_x_ind);
+            end
+        end
+        alldime = horzcat(alldime,gradient_hist);
+    end
+end
+
+alldime = normalize(alldime,'norm',1);
+
+%%
+
+clear;
+image1 = imread('../data/Notre Dame/921919841_a30df938f2_o.jpg');
+gray_image = rgb2gray(image1);
+gray_image = im2double(gray_image);
+
+[x, y, confidence, scale, orientation] = get_interest_points(image1,1);
+
+features = get_features(gray_image,x,y,16);
+
+
+%%
+% x = [x:1];
+% 
+% features = get_features(gray_image,1535,2047,8);
+
+features2 = get_features(gray_image,x,y,16);
 
 
 
