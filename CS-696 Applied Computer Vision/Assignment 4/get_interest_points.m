@@ -19,15 +19,6 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
 % Implement the Harris corner detector (See Szeliski 4.1.1) to start with.
 % You can create additional interest point detector functions (e.g. MSER)
 % for extra credit.
-
-% You are free to experiment. Here are some helpful functions:
-%  BWLABEL and the newer BWCONNCOMP will find connected components in 
-% thresholded binary image. You could, for instance, take the maximum value
-% within each component.
-%  COLFILT can be used to run a max() operator on each sliding window. You
-% could use this to ensure that every interest point is at a local maximum
-% of cornerness.
-
     if size(image,3)==3
         gray_image = rgb2gray(image);
     else
@@ -46,35 +37,22 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
     Ixy = imfilter(Ixy, gaussian_f);
       
     [rows,columns] = size(gray_image);
-    r_mat = zeros(rows,columns);
     k = 0.04;
-    RMax = 0;
     
-    for row_ind=1:rows
-        for col_ind=1:columns
-            M=[Ix2(row_ind,col_ind) Ixy(row_ind,col_ind);Ixy(row_ind,col_ind) Iy2(row_ind,col_ind)];
-            r_mat(row_ind,col_ind)=det(M) - k*(trace(M))^2;
-            if(r_mat(row_ind,col_ind)>RMax)
-                RMax=r_mat(row_ind,col_ind);
-            end
-        end
-    end
+    harris = Ix2 .* Iy2 - Ixy.^2 - k .*((Ix2 + Iy2).^2);
+    [RMax,~]=max(harris(:));
+    RMax = RMax(1);
     
-    %?Q*RMax???????????????
     Q=0.1;
-    R_corner=(r_mat>=(Q*RMax)).*r_mat;
-    R_localMax = colfilt(r_mat,[3 3],'sliding',@max);
-    [row,col]=find(R_localMax(2:rows-1,2:columns-1)==R_corner(2:rows-1,2:columns-1) & R_corner(2:rows-1,2:columns-1)~=0);
-    row = row+1;
-    col = col+1;
+    R_corner=(harris>=(Q*RMax)).*harris;
+    R_localMax = colfilt(R_corner,[3 3],'sliding',@max);
     
-
-
-    x=col;
-    y=row;
-    confidence=0;
+    match = (R_localMax == R_corner).*R_corner;
+    [y, x, confidence] = find(match(2:rows-1,2:columns-1)); 
+    y = y+1;
+    x = x+1;
+    
     scale=0;
     orientation=0;
-
 end
 
