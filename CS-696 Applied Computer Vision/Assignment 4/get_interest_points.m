@@ -26,24 +26,28 @@ function [x, y, confidence, scale, orientation] = get_interest_points(image, fea
     end
     gray_image = im2double(gray_image );
 
-    [Gx, Gy] = imgradientxy(gray_image,'prewitt');
+    gaussian_f = fspecial('gaussian');
+    gray_image = imfilter(gray_image, gaussian_f);
+    
+    [Gx, Gy] = imgradientxy(gray_image,'sobel');
     Ix2 = Gx.^2;
     Iy2 = Gy.^2;
     Ixy = Gx.*Gy;
     
-    gaussian_f = fspecial('gaussian');
     Ix2 = imfilter(Ix2, gaussian_f);
     Iy2 = imfilter(Iy2, gaussian_f);
     Ixy = imfilter(Ixy, gaussian_f);
       
     [rows,columns] = size(gray_image);
-    k = 0.04;
+%     k = 0.04;
+    k = 0.06;
     
     harris = Ix2 .* Iy2 - Ixy.^2 - k .*((Ix2 + Iy2).^2);
     [RMax,~]=max(harris(:));
     RMax = RMax(1);
     
-    Q=0.1;
+    Q=0.01;
+%     Q=0.1;
     R_corner=(harris>=(Q*RMax)).*harris;
     R_localMax = colfilt(R_corner,[3 3],'sliding',@max);
     
