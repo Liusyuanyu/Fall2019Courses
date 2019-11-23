@@ -1,5 +1,7 @@
 package BinarySearchTree;
 
+import Visitor.BinarySearchTreeVisitor;
+
 public class BinarySearchTreeNode implements Node {
 
     private String value;
@@ -31,32 +33,20 @@ public class BinarySearchTreeNode implements Node {
             }
         }
     }
-
     @Override
-    public String getValue(){
-        return value;
-    }
-
+    public String getValue(){ return value; }
     @Override
-    public Boolean isNull() {
-        return false;
-    }
-
+    public Boolean isNull() { return false; }
     @Override
     public Node getRight() {
         return right;
     }
-
     @Override
     public Node getLeft() {
         return left;
     }
-
-    public String TestPresent(Node node) {
-        if(node.isNull())
-            return "()";
-//        String representFormat = "(%s (%s)(%s))";
-        String representFormat = "(%s %s%s)";
-        return String.format(representFormat, node.getValue(),TestPresent(node.getLeft()),TestPresent(node.getRight()));
+    @Override
+    public String accept(BinarySearchTreeVisitor visitor) {
+        return visitor.representNode(this);
     }
 }
