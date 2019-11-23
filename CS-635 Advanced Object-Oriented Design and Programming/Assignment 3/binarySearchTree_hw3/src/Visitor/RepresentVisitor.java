@@ -4,7 +4,7 @@ import BinarySearchTree.Node;
 
 public class RepresentVisitor implements BinarySearchTreeVisitor {
 
-    String representFormat;
+    private String representFormat;
 
     public RepresentVisitor(){
         representFormat = "(%s %s%s)";

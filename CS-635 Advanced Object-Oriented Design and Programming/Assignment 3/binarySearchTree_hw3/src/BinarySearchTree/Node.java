@@ -2,14 +2,18 @@ package BinarySearchTree;
 
 import Visitor.BinarySearchTreeVisitor;
 
-//public interface Node {
-public interface Node {
-//    public String value;
-    public String getValue();
-    public void add(String value);
-    public Boolean isNull();
-    public Node getRight();
-    public Node getLeft();
+import java.util.List;
 
-    public String accept(BinarySearchTreeVisitor vistor);
+public interface Node {
+    String getValue();
+    void add(String value);
+    Boolean isNull();
+    Node getRight();
+    Node getLeft();
+
+    void setNodeState(Boolean isRoot);
+    List<String> getOrderMethodName();
+    void setOrderMethod(String methodName);
+
+    String accept(BinarySearchTreeVisitor visitor);
 }

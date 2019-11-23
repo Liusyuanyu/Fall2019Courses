@@ -2,7 +2,6 @@ package OrderStrategy;
 
 import BinarySearchTree.Node;
 
-public interface OrderStrategy {
-//    public String execute(Node node);
-    public Boolean execute(String value1,String value2);
+interface OrderStrategy {
+    Boolean compare(String nodeValue, String addValue);
 }

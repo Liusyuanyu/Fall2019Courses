@@ -1,11 +1,9 @@
 import BinarySearchTree.BinarySearchTreeNode;
-import BinarySearchTree.Node;
-//import Visitor.BinarySearchTreeVisitor;
-//import Visitor.RepresentVisitor;
-import OrderStrategy.OrderContext;
 import Visitor.*;
 
-public class Main {
+import java.util.List;
+
+class Main {
 
     public static void main(String[] args) {
 
@@ -14,20 +12,28 @@ public class Main {
 //        root.add("8");
 //        root.add("4");
 
-        BinarySearchTreeNode root= new BinarySearchTreeNode("dz");
-        root.add("ay");
-        root.add("cx");
-        root.add("bw");
+//        BinarySearchTreeNode root= new BinarySearchTreeNode("dz");
+//        root.add("ay");
+//        root.add("cx");
+//        root.add("bw");
 
-        RepresentVisitor vistor = new RepresentVisitor();
+        BinarySearchTreeNode root= new BinarySearchTreeNode("dy");
+        List<String> orderNames = root.getOrderMethodName();
+//        root.setOrderMethod(orderNames.get(0));
+        root.add("bz");
+        root.add("cw");
+        root.add("ax");
 
-        System.out.println("Binary Tree: " + root.accept(vistor));
+        RepresentVisitor visitor = new RepresentVisitor();
+        System.out.println("Normal Binary Tree: " + root.accept(visitor));
 
-        OrderContext orderWay = new OrderContext();
-        orderWay.setOrder("Normal");
-        System.out.println("Normal : " + orderWay.executeOrder(root));
+        root.setOrderMethod(orderNames.get(0));
+        System.out.println("Reverse Binary Tree: " + root.accept(visitor));
 
-        orderWay.setOrder("Reverse");
-        System.out.println("Reverse: " + orderWay.executeOrder(root));
+        //Normal  : (dy (bz (ax ()())(cw ()()))())
+        //Reverse : (dy (cw (ax ()())())(bz ()()))
+
+//        Normal  : (dy (bz (ax ()())(cw ()()))())
+//        Reverse : (dy (ax (cw ()())())(bz ()()))
     }
 }

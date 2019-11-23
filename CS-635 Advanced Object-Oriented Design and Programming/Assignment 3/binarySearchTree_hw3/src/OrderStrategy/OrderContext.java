@@ -1,27 +1,45 @@
 package OrderStrategy;
-import BinarySearchTree.Node;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.*;
 
 public class OrderContext {
     private OrderStrategy strategy;
     private Map<String,OrderStrategy> orderMap;
-
+    private String currentMethodName;
     public OrderContext(){
         orderMap = new HashMap<>();
-        orderMap.put("Normal",(String value1, String value2)->{
-            return  value1.compareTo(value2)>=0;
+        orderMap.put("Normal",(String nodeValue,String addValue)->{
+            return  nodeValue.compareTo(addValue)>=0;
         });
-        orderMap.put("Reverse",(String value1, String value2)->{
-            String reverseValue1 = new StringBuilder(value1).reverse().toString();
-            String reverseValue2 = new StringBuilder(value1).reverse().toString();
-            return  reverseValue1.compareTo(reverseValue2)>=0;
+        orderMap.put("Reverse",(String nodeValue,String addValue)->{
+            String reverseNodeValue = new StringBuilder(nodeValue).reverse().toString();
+            String reverseAddValue = new StringBuilder(addValue).reverse().toString();
+            return  reverseNodeValue.compareTo(reverseAddValue)>=0;
         });
+
+        strategy = orderMap.get("Normal");
+        currentMethodName = "Normal";
     }
-    public Boolean executeOrder(String value1, String value2)
+
+    public void setOrderMethod(String orderMethodName)
     {
-        return this.strategy.execute(value1,value2);
+        if(!orderMap.containsKey(orderMethodName))
+        {
+            throw new Error();
+        }
+        strategy = orderMap.get(orderMethodName);
+        currentMethodName = orderMethodName;
+    }
+    public List<String> getOrderMethodName()
+    {
+        return new ArrayList<>(orderMap.keySet());
+    }
+    public Boolean compare(String nodeValue, String addValue)
+    {
+        return this.strategy.compare(nodeValue,addValue);
+    }
+    public String getCurrentMethodName(){
+        return currentMethodName;
     }
 
 //    public OrderContext(){
@@ -39,22 +57,9 @@ public class OrderContext {
 //            return String.join(" | ",valueList);
 //        });
 //    }
-//    public String executeOrder(Node node)
+//    public String compare(Node node)
 //    {
-//        return this.strategy.execute(node);
-//    }
-
-//    public List<String> getOrderingWay()
-//    {
-//        return new ArrayList<>(orderMap.keySet());
-//    }
-//    public void setOrder(String order)
-//    {
-//        if(!orderMap.containsKey(order))
-//        {
-//            throw new UnsupportedOperationException();
-//        }
-//        this.strategy = orderMap.get(order);
+//        return this.strategy.compare(node);
 //    }
 //
 //    private void inOrder(Node node,List<String> valueList){
