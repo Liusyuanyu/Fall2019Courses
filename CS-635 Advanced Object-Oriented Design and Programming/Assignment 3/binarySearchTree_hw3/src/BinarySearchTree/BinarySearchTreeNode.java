@@ -24,27 +24,54 @@ public class BinarySearchTreeNode implements Node {
 
     @Override
     public void add(String value) {
+        Boolean isRight = false;
+        Node targetChild;
         if(valueOrder.compare(this.value,value)){
-            if(left.isNull()){
-                left = new BinarySearchTreeNode(value);
-                left.setNodeState(false);
-                left.setOrderMethod(valueOrder.getCurrentMethodName());
-            }
-            else {
-                left.add(value);
-            }
+            targetChild = left;
+            isRight=false;
         }
         else{
-            if(right.isNull()){
+            targetChild = right;
+            isRight=true;
+        }
+        if(targetChild.isNull()){
+            if(isRight){
                 right = new BinarySearchTreeNode(value);
-                right.setNodeState(false);
-                right.setOrderMethod(valueOrder.getCurrentMethodName());
+                targetChild= right;
             }
             else{
-                right.add(value);
+                left = new BinarySearchTreeNode(value);
+                targetChild= right;
             }
+            targetChild.setNodeState(false);
+            targetChild.setOrderMethod(valueOrder.getCurrentMethodName());
         }
+        else {
+            targetChild.add(value);
+        }
+
+//        if(valueOrder.compare(this.value,value)){
+//            if(left.isNull()){
+//                left = new BinarySearchTreeNode(value);
+//                left.setNodeState(false);
+//                left.setOrderMethod(valueOrder.getCurrentMethodName());
+//            }
+//            else {
+//                left.add(value);
+//            }
+//        }
+//        else{
+//            if(right.isNull()){
+//                right = new BinarySearchTreeNode(value);
+//                right.setNodeState(false);
+//                right.setOrderMethod(valueOrder.getCurrentMethodName());
+//            }
+//            else{
+//                right.add(value);
+//            }
+//        }
     }
+
     @Override
     public String getValue(){ return value; }
     @Override
@@ -85,7 +112,8 @@ public class BinarySearchTreeNode implements Node {
         left = new NullNode(); //Delete root's left children
         right = new NullNode();//Delete root's left children
 
-        valueList.forEach((value) -> this.add(value));
+//        valueList.forEach((value) -> this.add(value));
+        valueList.forEach(this::add);
     }
     private void inOrder(Node node,List<String> valueList){
         if(node.isNull()){

@@ -25,7 +25,7 @@ public class OrderContext {
     {
         if(!orderMap.containsKey(orderMethodName))
         {
-            throw new Error();
+            throw new Error("No such of order method name.");
         }
         strategy = orderMap.get(orderMethodName);
         currentMethodName = orderMethodName;
@@ -41,41 +41,5 @@ public class OrderContext {
     public String getCurrentMethodName(){
         return currentMethodName;
     }
-
-//    public OrderContext(){
-//        orderMap = new HashMap<>();
-//        orderMap.put("Normal",(Node node)->{
-//            List<String> valueList=new ArrayList<String>();
-//            inOrder(node,valueList);
-//            return String.join(" | ", valueList);
-//        });
-//
-//        orderMap.put("Reverse",(Node node)->{
-//            List<String> valueList=new ArrayList<String>();
-//            inOrder(node,valueList);
-//            valueList.sort(  Comparator.comparing(element->new StringBuilder(element).reverse().toString()));
-//            return String.join(" | ",valueList);
-//        });
-//    }
-//    public String compare(Node node)
-//    {
-//        return this.strategy.compare(node);
-//    }
-//
-//    private void inOrder(Node node,List<String> valueList){
-//        if(node.isNull()){
-//            return;
-//        }
-//        inOrder(node.getLeft(),valueList);
-//        valueList.add(node.getValue());
-//        inOrder(node.getRight(),valueList);
-//    }
-//
-//    private String rebuildByReversingString(Node node){
-//        List<String> valueList = new ArrayList<>();
-//        inOrder(node,valueList);
-//        valueList.sort(  Comparator.comparing(element->new StringBuilder(element).reverse().toString()));
-//        return String.join(" | ",valueList);
-//    }
 
 }
