@@ -18,7 +18,7 @@ class Main {
 //        root.add("bw");
 
         BinarySearchTreeNode root= new BinarySearchTreeNode("dy");
-        List<String> orderNames = root.getOrderMethodName();
+        List<String> orderNames = root.getOrderMethodNames();
 //        root.setOrderMethod(orderNames.get(0));
         root.add("bz");
         root.add("cw");

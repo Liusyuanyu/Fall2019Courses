@@ -1,8 +1,6 @@
 package BinarySearchTree;
-
 import OrderStrategy.OrderContext;
 import Visitor.BinarySearchTreeVisitor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,52 +22,26 @@ public class BinarySearchTreeNode implements Node {
 
     @Override
     public void add(String value) {
-        Boolean isRight = false;
-        Node targetChild;
         if(valueOrder.compare(this.value,value)){
-            targetChild = left;
-            isRight=false;
+            if(left.isNull()){
+                left = new BinarySearchTreeNode(value);
+                left.setNodeState(false);
+                left.setOrderMethod(valueOrder.getCurrentMethodName());
+            }
+            else {
+                left.add(value);
+            }
         }
         else{
-            targetChild = right;
-            isRight=true;
-        }
-        if(targetChild.isNull()){
-            if(isRight){
+            if(right.isNull()){
                 right = new BinarySearchTreeNode(value);
-                targetChild= right;
+                right.setNodeState(false);
+                right.setOrderMethod(valueOrder.getCurrentMethodName());
             }
             else{
-                left = new BinarySearchTreeNode(value);
-                targetChild= right;
+                right.add(value);
             }
-            targetChild.setNodeState(false);
-            targetChild.setOrderMethod(valueOrder.getCurrentMethodName());
         }
-        else {
-            targetChild.add(value);
-        }
-
-//        if(valueOrder.compare(this.value,value)){
-//            if(left.isNull()){
-//                left = new BinarySearchTreeNode(value);
-//                left.setNodeState(false);
-//                left.setOrderMethod(valueOrder.getCurrentMethodName());
-//            }
-//            else {
-//                left.add(value);
-//            }
-//        }
-//        else{
-//            if(right.isNull()){
-//                right = new BinarySearchTreeNode(value);
-//                right.setNodeState(false);
-//                right.setOrderMethod(valueOrder.getCurrentMethodName());
-//            }
-//            else{
-//                right.add(value);
-//            }
-//        }
     }
 
     @Override
@@ -84,14 +56,13 @@ public class BinarySearchTreeNode implements Node {
     public Node getLeft() {
         return left;
     }
-
     @Override
     public void setNodeState(Boolean isRoot) {
         this.isRoot = isRoot;
     }
     @Override
-    public List<String> getOrderMethodName() {
-        return valueOrder.getOrderMethodName();
+    public List<String> getOrderMethodNames() {
+        return valueOrder.getOrderMethodNames();
     }
     @Override
     public void setOrderMethod(String methodName) {
@@ -104,15 +75,12 @@ public class BinarySearchTreeNode implements Node {
     public String accept(BinarySearchTreeVisitor visitor) {
         return visitor.representNode(this);
     }
-
     private void rebuildTree(){
         List<String> valueList = new ArrayList<>();
         inOrder(this,valueList);
         valueList.remove(this.value);
         left = new NullNode(); //Delete root's left children
         right = new NullNode();//Delete root's left children
-
-//        valueList.forEach((value) -> this.add(value));
         valueList.forEach(this::add);
     }
     private void inOrder(Node node,List<String> valueList){

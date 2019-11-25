@@ -12,7 +12,7 @@ public interface Node {
     Node getLeft();
 
     void setNodeState(Boolean isRoot);
-    List<String> getOrderMethodName();
+    List<String> getOrderMethodNames();
     void setOrderMethod(String methodName);
 
     String accept(BinarySearchTreeVisitor visitor);

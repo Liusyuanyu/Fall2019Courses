@@ -30,7 +30,7 @@ public class OrderContext {
         strategy = orderMap.get(orderMethodName);
         currentMethodName = orderMethodName;
     }
-    public List<String> getOrderMethodName()
+    public List<String> getOrderMethodNames()
     {
         return new ArrayList<>(orderMap.keySet());
     }

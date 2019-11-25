@@ -1,8 +1,8 @@
 package BinarySearchTree;
 
 import Visitor.BinarySearchTreeVisitor;
-
 import java.util.List;
+import java.lang.NoSuchMethodException;
 
 public class NullNode implements Node{
 
@@ -12,7 +12,9 @@ public class NullNode implements Node{
         return true;
     }
     @Override
-    public void add(String value) {}
+    public void add(String value) {
+        throw new RuntimeException("NullNode doesn't implement add function.");
+    }
     @Override
     public String getValue(){
         return null;
@@ -25,16 +27,18 @@ public class NullNode implements Node{
     public Node getLeft() {
         return null;
     }
-
     @Override
-    public void setNodeState(Boolean isRoot) { }
+    public void setNodeState(Boolean isRoot) {
+        throw new RuntimeException("NullNode doesn't implement setNodeState function.");
+    }
     @Override
-    public List<String> getOrderMethodName() {
+    public List<String> getOrderMethodNames() {
         return null;
     }
     @Override
-    public void setOrderMethod(String methodName) { }
-
+    public void setOrderMethod(String methodName) {
+        throw new RuntimeException("NullNode doesn't implement add function.");
+    }
     @Override
     public String accept(BinarySearchTreeVisitor visitor) {
         return null;
