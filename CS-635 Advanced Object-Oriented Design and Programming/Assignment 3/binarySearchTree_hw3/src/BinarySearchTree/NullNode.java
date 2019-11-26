@@ -1,8 +1,7 @@
 package BinarySearchTree;
 
-import Visitor.BinarySearchTreeVisitor;
+import Visitor.BinaryTreeRepresentationVisitor;
 import java.util.List;
-import java.lang.NoSuchMethodException;
 
 public class NullNode implements Node{
 
@@ -40,7 +39,7 @@ public class NullNode implements Node{
         throw new RuntimeException("NullNode doesn't implement add function.");
     }
     @Override
-    public String accept(BinarySearchTreeVisitor visitor) {
+    public String accept(BinaryTreeRepresentationVisitor visitor) {
         return null;
     }
 }

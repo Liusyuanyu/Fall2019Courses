@@ -8,15 +8,12 @@ public class OrderContext {
     private String currentMethodName;
     public OrderContext(){
         orderMap = new HashMap<>();
-        orderMap.put("Normal",(String nodeValue,String addValue)->{
-            return  nodeValue.compareTo(addValue)>=0;
-        });
+        orderMap.put("Normal",(String nodeValue,String addValue)-> nodeValue.compareTo(addValue)>=0);
         orderMap.put("Reverse",(String nodeValue,String addValue)->{
             String reverseNodeValue = new StringBuilder(nodeValue).reverse().toString();
             String reverseAddValue = new StringBuilder(addValue).reverse().toString();
             return  reverseNodeValue.compareTo(reverseAddValue)>=0;
         });
-
         strategy = orderMap.get("Normal");
         currentMethodName = "Normal";
     }
@@ -25,7 +22,7 @@ public class OrderContext {
     {
         if(!orderMap.containsKey(orderMethodName))
         {
-            throw new Error("No such of order method name.");
+            throw new RuntimeException("No such of order method name.");
         }
         strategy = orderMap.get(orderMethodName);
         currentMethodName = orderMethodName;

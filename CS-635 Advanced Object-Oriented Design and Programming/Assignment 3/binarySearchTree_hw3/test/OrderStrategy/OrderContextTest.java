@@ -11,7 +11,6 @@ class OrderContextTest {
         OrderContext testOrder = new OrderContext();
         List<String> orderMethodNames = testOrder.getOrderMethodNames();
         assertEquals(orderMethodNames.get(1),testOrder.getCurrentMethodName());
-
         testOrder.setOrderMethod(orderMethodNames.get(0));
         assertEquals(orderMethodNames.get(0),testOrder.getCurrentMethodName());
     }
@@ -25,12 +24,16 @@ class OrderContextTest {
         assertTrue(testOrder.compare("bx","az"));
         assertFalse(testOrder.compare("aaa","bbb"));
         assertTrue(testOrder.compare("babcd","azzzz"));
-
-
         //Reverse order Test
         testOrder.setOrderMethod(orderMethodNames.get(0));
         assertFalse(testOrder.compare("bx","az"));
         assertTrue(testOrder.compare("aab","bba"));
         assertFalse(testOrder.compare("babcd","azzzz"));
+    }
+
+    @Test
+    void wrongMethodname(){
+        OrderContext testOrder = new OrderContext();
+        assertThrows(RuntimeException.class, ()-> testOrder.setOrderMethod("NonExistName"));
     }
 }

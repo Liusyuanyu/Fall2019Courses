@@ -1,7 +1,5 @@
 package BinarySearchTree;
-
-import Visitor.BinarySearchTreeVisitor;
-
+import Visitor.BinaryTreeRepresentationVisitor;
 import java.util.List;
 
 public interface Node {
@@ -15,5 +13,5 @@ public interface Node {
     List<String> getOrderMethodNames();
     void setOrderMethod(String methodName);
 
-    String accept(BinarySearchTreeVisitor visitor);
+    String accept(BinaryTreeRepresentationVisitor visitor);
 }

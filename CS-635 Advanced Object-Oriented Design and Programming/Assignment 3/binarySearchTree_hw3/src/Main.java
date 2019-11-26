@@ -7,33 +7,22 @@ class Main {
 
     public static void main(String[] args) {
 
-//        BinarySearchTreeNode root= new BinarySearchTreeNode("5");
-//        root.add("3");
-//        root.add("8");
-//        root.add("4");
-
-//        BinarySearchTreeNode root= new BinarySearchTreeNode("dz");
-//        root.add("ay");
-//        root.add("cx");
-//        root.add("bw");
-
-        BinarySearchTreeNode root= new BinarySearchTreeNode("dy");
+        BinarySearchTreeNode root= new BinarySearchTreeNode("day");
         List<String> orderNames = root.getOrderMethodNames();
-//        root.setOrderMethod(orderNames.get(0));
-        root.add("bz");
-        root.add("cw");
-        root.add("ax");
+        root.add("bfz");
+        root.add("chs");
+        root.add("eht");
+        root.add("ihu");
+        root.add("aex");
 
-        RepresentVisitor visitor = new RepresentVisitor();
+        RepresentTreeByNodeVisitor visitor = new RepresentTreeByNodeVisitor();
+        RepresentTreeByInOrderVisitor inOrderVisitor = new RepresentTreeByInOrderVisitor();
+
         System.out.println("Normal Binary Tree: " + root.accept(visitor));
+        System.out.println("Normal Inorder Binary Tree: " + root.accept(inOrderVisitor));
 
         root.setOrderMethod(orderNames.get(0));
         System.out.println("Reverse Binary Tree: " + root.accept(visitor));
-
-        //Normal  : (dy (bz (ax ()())(cw ()()))())
-        //Reverse : (dy (cw (ax ()())())(bz ()()))
-
-//        Normal  : (dy (bz (ax ()())(cw ()()))())
-//        Reverse : (dy (ax (cw ()())())(bz ()()))
+        System.out.println("Reverse Inorder Binary Tree: " + root.accept(inOrderVisitor));
     }
 }

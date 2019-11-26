@@ -1,6 +1,6 @@
 package BinarySearchTree;
 import OrderStrategy.OrderContext;
-import Visitor.BinarySearchTreeVisitor;
+import Visitor.BinaryTreeRepresentationVisitor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +43,6 @@ public class BinarySearchTreeNode implements Node {
             }
         }
     }
-
     @Override
     public String getValue(){ return value; }
     @Override
@@ -72,8 +71,8 @@ public class BinarySearchTreeNode implements Node {
         }
     }
     @Override
-    public String accept(BinarySearchTreeVisitor visitor) {
-        return visitor.representNode(this);
+    public String accept(BinaryTreeRepresentationVisitor visitor) {
+        return visitor.representTree(this);
     }
     private void rebuildTree(){
         List<String> valueList = new ArrayList<>();
