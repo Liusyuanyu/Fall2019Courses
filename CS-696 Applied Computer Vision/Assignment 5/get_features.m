@@ -3,7 +3,7 @@ function [features] = get_features(image, x, y)
     
     features = zeros(feature_num,128);
 
-    cell_width = 16/4;
+    cell_width = 8/4;
     neg_offset= floor((cell_width-1)/2);
     [Gmag,Gdir] = imgradient(image,'sobel');
     [max_height,max_width] = size(Gdir);

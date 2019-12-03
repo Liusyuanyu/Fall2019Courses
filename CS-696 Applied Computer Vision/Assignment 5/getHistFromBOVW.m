@@ -12,4 +12,3 @@ function [feature_hist] = getHistFromBOVW(image_feats,bovw)
     %Normalize L1
     feature_hist = feature_hist ./ sum(feature_hist(:));
 end
-

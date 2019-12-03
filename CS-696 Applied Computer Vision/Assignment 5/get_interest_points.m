@@ -26,7 +26,8 @@ function [x, y] = get_interest_points(image)
     [RMax,~]=max(harris(:));
     RMax = RMax(1);
     
-    Q=0.002;
+    Q=0.005;
+%     Q=0.01;
     R_corner=(harris>=(Q*RMax)).*harris;
     R_localMax = colfilt(R_corner,[3 3],'sliding',@max);
     
