@@ -3,7 +3,8 @@ function [features] = get_features(image, x, y)
     
     features = zeros(feature_num,128);
 
-    cell_width = 8/4;
+%     cell_width = 12/4;
+    cell_width = 16/4;
     neg_offset= floor((cell_width-1)/2);
     [Gmag,Gdir] = imgradient(image,'sobel');
     [max_height,max_width] = size(Gdir);
@@ -62,6 +63,11 @@ function [features] = get_features(image, x, y)
         end
 
         alldime = normalize(alldime,'norm',1);
+%         alldime = alldime / sum(alldime);
+        tf = isnan(alldime);
+        if sum(tf(:)) ~=0
+            alldime(tf==1) = 0;
+        end
         
         features(f_ind,:) =alldime; 
     end
@@ -84,7 +90,9 @@ function hist_ind = directionIndex(dir)
     elseif (dir > -112.5 && dir <= -112.5+45)
         hist_ind = 7;
     elseif (dir > -67.5 && dir < -67.5+45)
-        hist_ind = 8;    
+        hist_ind = 8;
+    else
+        hist_ind = 1;
     end
 end
 

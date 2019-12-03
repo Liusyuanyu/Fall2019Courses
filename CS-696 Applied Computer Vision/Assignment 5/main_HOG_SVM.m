@@ -124,3 +124,42 @@ confMat = confusionmat(testLabels, predictedLabels);
 % Step 4.4: calculate accuracy
 fprintf('Feature size=%d,  Kernel:[%d,%d]\n',featureSize,hog_kernel(1),hog_kernel(2));
 fprintf('HOG accuracy=\n%f\n',sum(diag(confMat))/sum(confMat(:)));
+
+%% Find failure images
+testLabels_num =zeros(size(testLabels,1),1);
+predictedLabels_num =zeros(size(testLabels,1),1);
+for idx = 1:size(testLabels,1)
+    if strcmp(testLabels(idx,:),'Flower1')
+        testLabels_num(idx) =1;
+    elseif strcmp(testLabels(idx,:),'Flower2')
+        testLabels_num(idx) =2;
+    elseif strcmp(testLabels(idx,:),'Flower3')
+        testLabels_num(idx) =3;
+    end
+    
+    if strcmp(predictedLabels(idx,:),'Flower1')
+        predictedLabels_num(idx) =1;
+    elseif strcmp(predictedLabels(idx,:),'Flower2')
+        predictedLabels_num(idx) =2;
+    elseif strcmp(predictedLabels(idx,:),'Flower3')
+        predictedLabels_num(idx) =3;
+    end
+end
+
+wrong_idx = find(testLabels_num ~=predictedLabels_num );
+randIdx=randperm(size(wrong_idx,1));
+
+disp("=============Failure Images=============");
+for idx = 1 : 3
+    
+    flower = floor(wrong_idx(randIdx(idx)) / 30) +1;
+    numImages = wrong_idx(randIdx(idx))-30*(flower-1);
+    img = rgb2gray(read(flowerImageSet(flower), numImages));
+    figure(idx);
+    imshow(img);
+
+    fprintf('GT=%d  Predict=%d\n',testLabels_num(wrong_idx(randIdx(idx))), predictedLabels_num(wrong_idx(randIdx(idx))));
+    
+%     fprintf('Ground Truth=%s\n',append("Flower",num2str(testLabels_num(wrong_idx(randIdx(idx))))));
+%     fprintf('Predict=%s\n',append("Flower",num2str(predictedLabels_num(wrong_idx(randIdx(idx))))));
+end

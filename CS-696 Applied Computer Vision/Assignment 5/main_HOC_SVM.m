@@ -112,18 +112,41 @@ confMat = confusionmat(testLabels, predictedLabels);
 fprintf('Bin size=%d\n',binOfHist);
 fprintf('HOC accuracy=\n%f\n',sum(diag(confMat))/sum(confMat(:)));
 
-%%
+%% Find failure images
+testLabels_num =zeros(size(testLabels,1),1);
+predictedLabels_num =zeros(size(testLabels,1),1);
+for idx = 1:size(testLabels,1)
+    if strcmp(testLabels(idx,:),'Flower1')
+        testLabels_num(idx) =1;
+    elseif strcmp(testLabels(idx,:),'Flower2')
+        testLabels_num(idx) =2;
+    elseif strcmp(testLabels(idx,:),'Flower3')
+        testLabels_num(idx) =3;
+    end
+    
+    if strcmp(predictedLabels(idx,:),'Flower1')
+        predictedLabels_num(idx) =1;
+    elseif strcmp(predictedLabels(idx,:),'Flower2')
+        predictedLabels_num(idx) =2;
+    elseif strcmp(predictedLabels(idx,:),'Flower3')
+        predictedLabels_num(idx) =3;
+    end
+end
 
-% img = (read(flowerImageSet(1), arrTrainID(1)));
-% figure(1);
-% imshow(img);
-% % Crop image from centeriod#START
-% [img_y, img_x,~] = size(img);
-% img_y = img_y/2;
-% img_x = img_x/2;
-% xmin = img_x-targetSize(1)/2 -1;
-% ymin = img_y-targetSize(2)/2-1;
-% img = imcrop(img,[xmin, ymin, targetSize(1),targetSize(2)]);
-%         
-% figure(2);
-% imshow(img);       
+wrong_idx = find(testLabels_num ~=predictedLabels_num );
+randIdx=randperm(size(wrong_idx,1));
+
+disp("=============Failure Images=============");
+for idx = 1 : 3
+    
+    flower = floor(wrong_idx(randIdx(idx)) / 30) +1;
+    numImages = wrong_idx(randIdx(idx))-30*(flower-1);
+    img = rgb2gray(read(flowerImageSet(flower), numImages));
+    figure(idx);
+    imshow(img);
+
+    fprintf('GT=%d  Predict=%d\n',testLabels_num(wrong_idx(randIdx(idx))), predictedLabels_num(wrong_idx(randIdx(idx))));
+    
+%     fprintf('Ground Truth=%s\n',append("Flower",num2str(testLabels_num(wrong_idx(randIdx(idx))))));
+%     fprintf('Predict=%s\n',append("Flower",num2str(predictedLabels_num(wrong_idx(randIdx(idx))))));
+end     
