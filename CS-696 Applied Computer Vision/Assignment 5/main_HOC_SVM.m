@@ -11,6 +11,7 @@ arrTestID=tmparr(51:end);% testing ID;
 trainingFeatures = [];
 trainingLabels   = [];
 binOfHist = 30;
+% binOfHist = 50;
 targetSize = [500 450];
 
 %% For loop
@@ -139,14 +140,16 @@ randIdx=randperm(size(wrong_idx,1));
 disp("=============Failure Images=============");
 for idx = 1 : 3
     
-    flower = floor(wrong_idx(randIdx(idx)) / 30) +1;
+    flower = floor((wrong_idx(randIdx(idx))-1) / 30) +1;
     numImages = wrong_idx(randIdx(idx))-30*(flower-1);
-    img = rgb2gray(read(flowerImageSet(flower), numImages));
+    img = (read(flowerImageSet(flower), numImages));
+    
     figure(idx);
     imshow(img);
 
-    fprintf('GT=%d  Predict=%d\n',testLabels_num(wrong_idx(randIdx(idx))), predictedLabels_num(wrong_idx(randIdx(idx))));
+    fprintf('%d : GT=%d  Predict=%d\n',idx,testLabels_num(wrong_idx(randIdx(idx))), predictedLabels_num(wrong_idx(randIdx(idx))));
     
 %     fprintf('Ground Truth=%s\n',append("Flower",num2str(testLabels_num(wrong_idx(randIdx(idx))))));
 %     fprintf('Predict=%s\n',append("Flower",num2str(predictedLabels_num(wrong_idx(randIdx(idx))))));
 end     
+%%

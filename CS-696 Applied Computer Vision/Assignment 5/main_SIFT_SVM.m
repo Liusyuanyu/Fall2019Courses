@@ -17,8 +17,8 @@ arrTestID=tmparr(51:end);% testing ID;
 %% Step-3: Train the classifier using features extracted from the training set.
 targetSize = [500 450];
 % words_num = 1000;
-words_num = 500;
-% words_num = 300;
+% words_num = 500;
+words_num = 300;
 
 %% For loop
 all_des = [];
@@ -137,24 +137,24 @@ for idx = 1:size(testLabels,1)
         predictedLabels_num(idx) =3;
     end
 end
-
-wrong_idx = find(testLabels_num ~=predictedLabels_num );
-randIdx=randperm(size(wrong_idx,1));
-
-disp("=============Failure Images=============");
-for idx = 1 : 3
-    
-    flower = floor(wrong_idx(randIdx(idx)) / 30) +1;
-    numImages = wrong_idx(randIdx(idx))-30*(flower-1);
-    img = rgb2gray(read(flowerImageSet(flower), numImages));
-    figure(idx);
-    imshow(img);
-
-    fprintf('GT=%d  Predict=%d\n',testLabels_num(wrong_idx(randIdx(idx))), predictedLabels_num(wrong_idx(randIdx(idx))));
-    
-%     fprintf('Ground Truth=%s\n',append("Flower",num2str(testLabels_num(wrong_idx(randIdx(idx))))));
-%     fprintf('Predict=%s\n',append("Flower",num2str(predictedLabels_num(wrong_idx(randIdx(idx))))));
-end
+% %%
+% wrong_idx = find(testLabels_num ~=predictedLabels_num );
+% randIdx=randperm(size(wrong_idx,1));
+% 
+% disp("=============Failure Images=============");
+% for idx = 1 : 3
+%     
+%     flower = floor((wrong_idx(randIdx(idx))-1) / 30) +1;
+%     numImages = wrong_idx(randIdx(idx))-30*(flower-1);
+%     img = rgb2gray(read(flowerImageSet(flower), numImages));
+%     figure(idx);
+%     imshow(img);
+% 
+%     fprintf('GT=%d  Predict=%d\n',testLabels_num(wrong_idx(randIdx(idx))), predictedLabels_num(wrong_idx(randIdx(idx))));
+%     
+% %     fprintf('Ground Truth=%s\n',append("Flower",num2str(testLabels_num(wrong_idx(randIdx(idx))))));
+% %     fprintf('Predict=%s\n',append("Flower",num2str(predictedLabels_num(wrong_idx(randIdx(idx))))));
+% end
 
 
 

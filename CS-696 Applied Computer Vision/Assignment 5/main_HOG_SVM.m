@@ -152,7 +152,7 @@ randIdx=randperm(size(wrong_idx,1));
 disp("=============Failure Images=============");
 for idx = 1 : 3
     
-    flower = floor(wrong_idx(randIdx(idx)) / 30) +1;
+    flower = floor( (wrong_idx(randIdx(idx)) -1) / 30) +1;
     numImages = wrong_idx(randIdx(idx))-30*(flower-1);
     img = rgb2gray(read(flowerImageSet(flower), numImages));
     figure(idx);
