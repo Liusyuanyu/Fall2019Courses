@@ -37,7 +37,7 @@ public class FontKey {
         }
 
         FontKey key = (FontKey)object;
-        return (name.equals(key.getName())) & (size == key.getSize()) & (style==key.getStyle());
+        return (name.equals(key.getName()))&(size == key.getSize())&(style==key.getStyle());
     }
 }
 

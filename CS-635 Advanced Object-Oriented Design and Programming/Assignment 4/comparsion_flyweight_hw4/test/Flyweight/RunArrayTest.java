@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RunArrayTest {
 
     @Test
-    void runArrayAddAndGet() {
+    void runArrayAddAndGetTest() {
         RunArray runArray = new RunArray();
         String normalText="Copyright ©, All rights reserved";
         String boldText="Object-Oriented Design";

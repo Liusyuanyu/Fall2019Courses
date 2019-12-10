@@ -6,7 +6,7 @@ import java.util.Map;
 public class CharacterFactory {
     private static final Map<java.lang.Character, Character> characterMap =new HashMap<>();
     private static CharacterFactory instance;
-    public CharacterFactory(){ }
+    private CharacterFactory(){ }
 
     public static CharacterFactory instance() {
         if (instance == null)

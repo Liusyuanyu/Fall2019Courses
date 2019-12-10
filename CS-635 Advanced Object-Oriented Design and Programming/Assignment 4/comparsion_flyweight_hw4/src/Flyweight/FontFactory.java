@@ -6,7 +6,7 @@ public class FontFactory {
     private static final Map<FontKey, Font> fontMap =new HashMap<>();
     private static FontFactory instance;
 
-    public FontFactory(){}
+    private FontFactory(){}
 
     public static FontFactory instance() {
         if (instance == null)

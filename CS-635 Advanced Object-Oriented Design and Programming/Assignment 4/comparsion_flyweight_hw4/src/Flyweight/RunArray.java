@@ -1,6 +1,4 @@
 package Flyweight;
-import Flyweight.Font;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
@@ -30,7 +28,8 @@ public class RunArray {
 
     public Font getFont(int index){
         OptionalInt fontIndex = IntStream.range(0,indexList.size())
-                .filter(element -> indexList.get(element)[0] <= index && indexList.get(element)[1] > index)
+                .filter(element -> indexList.get(element)[0]
+                        <= index && indexList.get(element)[1] > index)
                 .findFirst();
         if(!fontIndex.isPresent())
             return null;

@@ -21,6 +21,7 @@ public class Font {
     }
 
     public  String toString(){
-        return String.format("Name: %s, Size: %d, Style: %s",name,size,style.name());
+        return String.format("Name: %s, Size: %d, Style: %s",
+                name,size,style.name());
     }
 }

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CharacterTest {
 
     @Test
-    void CharacterGetter() {
+    void CharacterGetterTest() {
         char testItem = 'A';
         Character testCharacter = new Character(testItem);
         assertEquals(testItem,testCharacter.get());
